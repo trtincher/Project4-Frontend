@@ -1,13 +1,15 @@
 import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import apiURL from '../../apiConfig';
 import axios from 'axios';
 import { DataContext } from '../../App';
 
-function StudentForm({ type }) {
-	console.log('StudentForm type', type);
-	const [ user, setUser ] = useState({});
+function UserForm({ type, props }) {
+	console.log('UserForm type', type);
+	console.log('UserForm', props);
 	const { activeUser, setActiveUser } = useContext(DataContext);
+	const [ user, setUser ] = useState({});
+	const [ invalidEntry, setInvalidEntry ] = useState('');
 
 	const handleChange = (e) => {
 		// console.log('field', e.target.value);
@@ -20,6 +22,21 @@ function StudentForm({ type }) {
 	const handleLoginSubmit = (event) => {
 		event.preventDefault();
 		console.log('handleLoginSubmit');
+		const getUser = async () => {
+			try {
+				const response = await axios(`${apiURL}/users/email/${user.email}`);
+				console.log('Response getUser', response);
+				if (response.data.length > 0) {
+					setActiveUser(response.data);
+					props.history.push('/characters');
+				} else {
+					setInvalidEntry('Invalid Credentials');
+				}
+			} catch (err) {
+				console.error(err);
+			}
+		};
+		getUser();
 	};
 
 	const handleSignUpSubmit = (event) => {
@@ -33,6 +50,7 @@ function StudentForm({ type }) {
 			.then((res) => {
 				console.log('res in Signup', res);
 				setActiveUser(res.data);
+				props.history.push('/characters');
 			})
 			.catch(console.error);
 	};
@@ -40,7 +58,8 @@ function StudentForm({ type }) {
 	let submitType = type === '/login' ? handleLoginSubmit : handleSignUpSubmit;
 
 	return (
-		<div className="StudentForm">
+		<div className="UserForm">
+			<h1>{invalidEntry}</h1>
 			<form onSubmit={submitType}>
 				<input placeholder={'Name'} value={user.name} name="name" onChange={handleChange} />
 
@@ -57,4 +76,4 @@ function StudentForm({ type }) {
 	);
 }
 
-export default StudentForm;
+export default UserForm;

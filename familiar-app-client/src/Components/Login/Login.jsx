@@ -9,7 +9,7 @@ function Login(props) {
 	return (
 		<div className="Login">
 			<h1>Login</h1>
-			<UserForm type={login} />
+			<UserForm type={login} props={props} />
 		</div>
 	);
 }
