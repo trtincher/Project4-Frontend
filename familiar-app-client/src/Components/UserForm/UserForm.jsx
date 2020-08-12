@@ -1,13 +1,13 @@
 import React, { useState, useContext } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import apiURL from '../../apiConfig';
 import axios from 'axios';
 import { DataContext } from '../../App';
 
 function UserForm({ type, props }) {
-	console.log('UserForm type', type);
-	console.log('UserForm', props);
-	const { activeUser, setActiveUser } = useContext(DataContext);
+	// console.log('UserForm type', type);
+	// console.log('UserForm', props);
+	const { setActiveUser } = useContext(DataContext);
 	const [ user, setUser ] = useState({});
 	const [ invalidEntry, setInvalidEntry ] = useState('');
 
@@ -21,7 +21,7 @@ function UserForm({ type, props }) {
 
 	const handleLoginSubmit = (event) => {
 		event.preventDefault();
-		console.log('handleLoginSubmit');
+		// console.log('handleLoginSubmit');
 		const getUser = async () => {
 			try {
 				const response = await axios(`${apiURL}/users/email/${user.email}`);
@@ -41,7 +41,7 @@ function UserForm({ type, props }) {
 
 	const handleSignUpSubmit = (event) => {
 		event.preventDefault();
-		console.log('handleSignUpSubmit');
+		// console.log('handleSignUpSubmit');
 		axios({
 			url: `${apiURL}/users`,
 			method: 'POST',
