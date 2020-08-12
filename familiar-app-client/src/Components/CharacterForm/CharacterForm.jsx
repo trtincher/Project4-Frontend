@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Form({ type, subject, handleSubmit, handleChange, cancelPath }) {
-	console.log('Form type', type);
+function StudentForm({ type, subject, handleSubmit, handleChange, cancelPath }) {
+	console.log('StudentForm type', type);
 
 	return (
-		<div className="Form">
+		<div className="StudentForm">
 			<form onSubmit={handleSubmit}>
 				<label>Text</label>
 				<input placeholder={'Text here'} value={subject} name="field1" onChange={handleChange} />
@@ -22,4 +22,4 @@ function Form({ type, subject, handleSubmit, handleChange, cancelPath }) {
 	);
 }
 
-export default Form;
+export default StudentForm;

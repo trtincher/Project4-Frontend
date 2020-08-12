@@ -102,15 +102,16 @@ This schedule will be used to keep track of your progress throughout the week an
 You are **responsible** for scheduling time with your squad to seek approval for each deliverable by the end of the corresponding day, excluding `Saturday` and `Sunday`.
 | Day | Deliverable | Status
 |---|---| ---|
-|Day 0 - Sun|Project Planning|In Progress
-|Day 1 - Tues|Project Proposal|Incomplete
-|Day 1 - Tues|User/Character Models|Incomplete
-|Day 1 - Tues|Full CRUD routes for Users|Incomplete
-|Day 1 - Tues|Full CRUD for Characters/Spells/Actions|Incomplete
-|Day 1- Tues|Seed Character Data|Incomplete
-|Day 1 - Tues|React Architecture Setup|Incomplete
-|Day 1 - Tues|Backend(BE) Deployment|Incomplete
-|Day 1 - Tues|Frontend(FE) Deployment|Incomplete
+|Day 0 - Sun|Project Planning|Complete
+|Day 1 - Tues|Project Proposal|Complete
+|Day 1 - Tues|User/Character Models|Complete
+|Day 1 - Tues|Full CRUD routes for Users|Complete
+|Day 1 - Tues|Full CRUD for Characters/Spells/Actions|Complete
+|Day 1- Tues|Seed Character Data|Complete
+|Day 1 - Tues|React Architecture Setup|Complete
+|Day 1 - Tues|Backend(BE) Deployment|Complete
+|Day 1 - Tues|Frontend(FE) Deployment|Complete
+|Day 2- Wed|CharacterForm|In Progress
 |Day 2- Wed|Choose Character|Incomplete
 |Day 2- Wed|Character Dashboard|Incomplete
 |Day 2- Wed|Card|Incomplete

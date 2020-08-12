@@ -1,14 +1,15 @@
 import React from 'react';
 
-import Form from '../Form/Form';
+import UserForm from '../UserForm/UserForm';
 
 function SignUp(props) {
 	let signup = props.location.pathname;
+	console.log('SignUp props', props);
 
 	return (
 		<div className="SignUp">
 			<h1>SignUp</h1>
-			<Form type={signup} />
+			<UserForm type={signup} props={props} />
 		</div>
 	);
 }
