@@ -4,12 +4,19 @@ import apiURL from '../../apiConfig';
 import axios from 'axios';
 import { DataContext } from '../../App';
 
+import DashHead from './DashHead/DashHead';
+import DashBody from './DashBody/DashBody';
+import DashFoot from './DashFoot/DashFoot';
+
 function Dashboard() {
 	const { activeUser, setActiveUser } = useContext(DataContext);
+	const { activeCharacter, setActiveCharacter } = useContext(DataContext);
 
 	return (
 		<div className="Dashboard">
-			<h1>Dashboard</h1>
+			<DashHead character={activeCharacter} />
+			<DashBody character={activeCharacter} />
+			<DashFoot character={activeCharacter} />
 		</div>
 	);
 }
