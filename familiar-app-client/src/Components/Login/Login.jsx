@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Form from '../Form/Form';
+import UserForm from '../UserForm/UserForm';
 
 function Login(props) {
 	console.log('Login props', props);
@@ -9,7 +9,7 @@ function Login(props) {
 	return (
 		<div className="Login">
 			<h1>Login</h1>
-			<Form type={login} />
+			<UserForm type={login} />
 		</div>
 	);
 }
