@@ -1,13 +1,18 @@
 import React, { useState, useContext } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import apiURL from '../../../apiConfig';
-import axios from 'axios';
 
-function DashHead() {
+import StyledHead from './StyledHead';
+import Avatar from './Avatar/Avatar';
+import BattleButton from './Battle/BattleButton';
+import BaseStats from './Stats/BaseStats';
+
+function DashHead({ character }) {
 	return (
-		<div className="DashHead">
-			<h1>DashHead</h1>
-		</div>
+		<StyledHead className="DashHead">
+			<Avatar character={character} />
+			<BattleButton />
+			<BaseStats character={character} />
+		</StyledHead>
 	);
 }
 

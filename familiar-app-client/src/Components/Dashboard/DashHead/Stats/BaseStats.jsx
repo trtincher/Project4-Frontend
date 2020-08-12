@@ -1,17 +1,38 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import { DataContext } from '../../App';
+import styled, { css } from 'styled-components';
 
-import DashHead from './DashHead/DashHead';
-import DashBody from './DashBody/DashBody';
-import DashFoot from './DashFoot/DashFoot';
+const StatsContainer = styled.div`
+	display: flex;
+	justify-content: space-around;
+	min-height: 25px;
+	border: 1px solid white;
+	background: #00bbf9;
+	border-radius: 10px;
+`;
+const Stat = styled.div`
+	border: 1px solid white;
+	background: #00bbf9;
+	border-radius: 10px;
+	padding: .5rem;
+`;
+const Modifier = styled.p`
+	font-size: 1rem;
+	margin: 0;
+`;
+const StatName = styled.h1`
+	font-size: 1rem;
+	margin: 0;
+`;
 
-function Dashboard() {
-	const { activeUser, setActiveUser } = useContext(DataContext);
-	const { activeCharacter, setActiveCharacter } = useContext(DataContext);
+function BaseStats({ character }) {
+	console.log('character in BaseStats', character);
+	const [ currentCharacter, setCurrentCharacter ] = useState({
+		baseStats: ''
+	});
+	const [ stats, setStats ] = useState([]);
 
 	useEffect(() => {
-		setActiveCharacter({
+		setCurrentCharacter({
 			saving_throws: [ 'str', 'dex', 'con', 'int', 'wis', 'cha' ],
 			defenses: [ {} ],
 			languages: [ 'Common', 'Elvish', 'Riedran', 'Sylvan' ],
@@ -360,13 +381,22 @@ function Dashboard() {
 		});
 	}, []);
 
-	return (
-		<div className="Dashboard">
-			<DashHead character={activeCharacter} />
-			<DashBody character={activeCharacter} />
-			<DashFoot character={activeCharacter} />
-		</div>
-	);
+	// const stats = character === undefined ? {} : character.baseStats;
+	const statShort = [ 'str', 'dex', 'con', 'int', 'wis', 'char' ];
+	const statNames = [ 'strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma' ];
+
+	const statsMap = () => {
+		const stats = statNames.map((stat, i) => (
+			<Stat>
+				<StatName>{statShort[i]}</StatName>
+				<Modifier>{currentCharacter.baseStats[stat]}</Modifier>
+			</Stat>
+		));
+
+		return stats;
+	};
+
+	return <StatsContainer>{statsMap()}</StatsContainer>;
 }
 
-export default Dashboard;
+export default BaseStats;
