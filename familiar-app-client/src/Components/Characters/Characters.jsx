@@ -1,5 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { DataContext } from '../../App';
+import Card from '../Card/Card';
+import CardContainer from '../Card/CardContainer';
 
 function Characters(props) {
 	const { activeUser, setActiveUser } = useContext(DataContext);
@@ -16,19 +18,19 @@ function Characters(props) {
 	const characters = activeUser[0].characters;
 
 	const characterMap = characters.map((character) => (
-		<div key={character.id}>
+		<Card key={character.id}>
 			<h3>{character.name}</h3>
 			<h5>{character.race}</h5>
 			<h4>{character.class}</h4>
 			<h5>{`Level: ${character.level}`}</h5>
 			<button onClick={() => handleCharacterClick(character)}>Select Character</button>
-		</div>
+		</Card>
 	));
 
 	return (
-		<div className="Characters">
+		<div>
 			<h1>{`${activeUser[0].name} Select Your Character`}</h1>
-			<div>{characterMap}</div>
+			<CardContainer className="Characters">{characterMap}</CardContainer>
 			<button>CREATE NEW CHARACTER</button>
 		</div>
 	);
