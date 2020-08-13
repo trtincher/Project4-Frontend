@@ -19,6 +19,7 @@ const Slot = styled.div`
 	border: 1px solid white;
 	width: 2rem;
 	margin: 3px 5px;
+	border-radius: 10px;
 `;
 
 const Value = styled.h1`

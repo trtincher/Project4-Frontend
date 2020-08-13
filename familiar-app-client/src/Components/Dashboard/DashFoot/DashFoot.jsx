@@ -11,7 +11,7 @@ const Container = styled.div`
 	justify-content: space-around;
 	padding: .5rem;
 	position: fixed;
-	bottum: 0;
+	bottom: 0;
 `;
 
 function DashFoot() {

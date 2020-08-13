@@ -20,17 +20,17 @@ const Fourth = styled.div`display: flex;`;
 
 function DashHead({ character }) {
 	return (
-		<StyledHead className="DashHead">
+		<StyledHead>
 			<First>
 				<Nav />
 				<Avatar character={character} />
-				<BattleButton />
 			</First>
 			<Secound>
 				<BaseStats character={character} />
 			</Secound>
 			<Third>
 				<SecoundaryStats />
+				<BattleButton />
 			</Third>
 			<Fourth>
 				<SpellSlot />

@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 
 const StyledHead = styled.div`
-	background: grey;
-	height: 250px;
-	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	background: white;
+	padding: .5rem;
+	margin: 0 auto;
+	position: sticky;
+	top: 0;
 `;
 
 export default StyledHead;
