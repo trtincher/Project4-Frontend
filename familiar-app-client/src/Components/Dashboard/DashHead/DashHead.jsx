@@ -6,7 +6,6 @@ import StyledHead from './StyledHead';
 import Avatar from './Avatar/Avatar';
 import BattleButton from './Battle/BattleButton';
 import BaseStats from './Stats/BaseStats';
-import HpDisplay from './HpDisplay/HpDisplay';
 import SpellSlot from './SpellSlots/SpellSlots';
 import SecoundaryStats from './Stats/SecoundaryStats';
 import Nav from '../../Nav/Nav';
@@ -29,7 +28,6 @@ function DashHead({ character }) {
 			</Secound>
 			<Third>
 				<SecoundaryStats />
-				<HpDisplay />
 			</Third>
 			<Fourth>
 				<SpellSlot />
