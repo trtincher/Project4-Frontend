@@ -35,6 +35,9 @@ function Dashboard() {
 				'Shove',
 				'Use and Object'
 			],
+			spellSlots: {
+				1: 2
+			},
 			spells: [
 				{
 					_id: '5f31b3230b1bb138c5a62b38',
