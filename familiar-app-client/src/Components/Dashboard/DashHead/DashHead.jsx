@@ -12,7 +12,10 @@ import Nav from '../../Nav/Nav';
 
 const First = styled.div`display: flex;`;
 const Secound = styled.div`display: flex;`;
-const Third = styled.div`display: flex;`;
+const Third = styled.div`
+	display: flex;
+	justify-content: center;
+`;
 const Fourth = styled.div`display: flex;`;
 
 function DashHead({ character }) {
