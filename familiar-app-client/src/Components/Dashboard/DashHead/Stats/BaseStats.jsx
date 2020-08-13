@@ -6,9 +6,6 @@ const StatsContainer = styled.div`
 	justify-content: space-around;
 	min-height: 25px;
 	width: 100%;
-	border: 1px solid white;
-	background: #00bbf9;
-	border-radius: 10px;
 `;
 const Stat = styled.div`
 	flex-grow: 1;
