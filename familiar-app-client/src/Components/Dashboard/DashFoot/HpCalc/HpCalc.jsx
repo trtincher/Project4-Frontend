@@ -1,42 +1,62 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { faMinus } from '@fortawesome/free-solid-svg-icons';
-import { faHeartBroken } from '@fortawesome/free-solid-svg-icons';
+import { DataContext } from '../../../../App';
 
-const Container = styled.div`display: flex;`;
-const Unit = styled.div`
+const Container = styled.div`
 	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+`;
+const Unit = styled.div`
 	border: 1px solid white;
 	background: #00bbf9;
 	border-radius: 10px;
 	padding: 10px;
+	width: 90px;
 `;
 
-const PlusIcon = styled.div``;
-const SolidHeartIcon = styled.div``;
-const MinusIcon = styled.div``;
-const BrokenHeartIcon = styled.div``;
-
-const plus = <FontAwesomeIcon icon={faPlus} size="3x" />;
-const minus = <FontAwesomeIcon icon={faMinus} size="3x" />;
-const solidHeart = <FontAwesomeIcon icon={faHeart} size="3x" />;
-const brokenHeart = <FontAwesomeIcon icon={faHeartBroken} size="3x" />;
-
 function HpCalc() {
+	const { activeCharacter, setActiveCharacter } = useContext(DataContext);
+	const [ currentRange, setCurrentRange ] = useState([]);
+	const [ maxRange, setMaxRange ] = useState([]);
+
+	useEffect(
+		() => {
+			if (activeCharacter.hp !== undefined) {
+				let curr = calcCurrRange();
+				let max = calcMaxRange();
+				setCurrentRange(curr);
+				setMaxRange(max);
+			}
+		},
+		[ activeCharacter ]
+	);
+
+	const calcCurrRange = () => {
+		const currentHp = activeCharacter.hp.current;
+		const curr = [];
+		for (let i = 1; i <= currentHp; i++) {
+			curr.push(i);
+		}
+		const currMap = curr.map((n) => <p>{n}</p>);
+		return currMap;
+	};
+
+	const calcMaxRange = () => {
+		const maxHp = activeCharacter.hp.max + activeCharacter.hp.temp;
+		const max = [];
+		for (let i = 1; i <= maxHp; i++) {
+			max.push(i);
+		}
+		const maxMap = max.map((n) => <p>{n}</p>);
+		return maxMap;
+	};
+
 	return (
 		<Container>
-			<Unit>
-				<PlusIcon>{plus}</PlusIcon>
-				<SolidHeartIcon>{solidHeart}</SolidHeartIcon>
-			</Unit>
-			<Unit>
-				<MinusIcon>{minus}</MinusIcon>
-				<BrokenHeartIcon>{brokenHeart}</BrokenHeartIcon>
-			</Unit>
+			<Unit>{maxRange}</Unit>
+			<Unit>{currentRange}</Unit>
 		</Container>
 	);
 }

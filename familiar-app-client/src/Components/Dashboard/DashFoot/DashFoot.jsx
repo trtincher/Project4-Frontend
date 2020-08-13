@@ -3,23 +3,31 @@ import { Link, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 
 import DiceIcon from './Dice/DiceIcon';
-import HpCalc from './HpCalc/HpCalc';
+import HpButtons from './HpCalc/HpButtons';
 import HpDisplay from './HpDisplay/HpDisplay';
+import HpCalc from './HpCalc/HpCalc';
 
 const Container = styled.div`
-	display: flex;
 	justify-content: space-around;
 	padding: .5rem;
 	position: fixed;
 	bottom: 0;
 `;
 
+const RowOne = styled.div`display: flex;`;
+const RowTwo = styled.div`display: flex;`;
+
 function DashFoot() {
 	return (
 		<Container>
-			<DiceIcon />
-			<HpDisplay />
-			<HpCalc />
+			<RowOne>
+				<HpCalc />
+			</RowOne>
+			<RowTwo>
+				<DiceIcon />
+				<HpDisplay />
+				<HpButtons />
+			</RowTwo>
 		</Container>
 	);
 }
