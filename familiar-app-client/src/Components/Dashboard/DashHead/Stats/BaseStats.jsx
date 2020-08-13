@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { DataContext } from '../../../../App';
 import styled, { css } from 'styled-components';
 
 const StatsContainer = styled.div`
@@ -24,11 +25,11 @@ const StatName = styled.h1`
 `;
 
 function BaseStats({ character }) {
-	console.log('character in BaseStats', character);
+	// console.log('character in BaseStats', character);
+	const { modifiers, setModifiers } = useContext(DataContext);
 	const [ currentCharacter, setCurrentCharacter ] = useState({
 		baseStats: ''
 	});
-	const [ stats, setStats ] = useState([]);
 
 	useEffect(() => {
 		setCurrentCharacter({
@@ -380,15 +381,13 @@ function BaseStats({ character }) {
 		});
 	}, []);
 
-	// const stats = character === undefined ? {} : character.baseStats;
-	const statShort = [ 'str', 'dex', 'con', 'int', 'wis', 'char' ];
-	const statNames = [ 'strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma' ];
-
 	const statsMap = () => {
+		const statShort = [ 'str', 'dex', 'con', 'int', 'wis', 'char' ];
+		const statNames = [ 'strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma' ];
 		const stats = statNames.map((stat, i) => (
 			<Stat>
 				<StatName>{statShort[i]}</StatName>
-				<Modifier>{currentCharacter.baseStats[stat]}</Modifier>
+				<Modifier>{modifiers[stat]}</Modifier>
 			</Stat>
 		));
 

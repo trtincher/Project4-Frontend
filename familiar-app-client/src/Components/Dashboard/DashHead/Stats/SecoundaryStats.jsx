@@ -1,6 +1,6 @@
-
 import React, { useState, useContext, useEffect } from 'react';
 import styled, { css } from 'styled-components';
+import { DataContext } from '../../../../App';
 
 const StatsContainer = styled.div`
 	display: flex;
@@ -23,7 +23,8 @@ const StatName = styled.h1`
 `;
 
 function SecoundaryStats({ character }) {
-	console.log('character in BaseStats', character);
+	// console.log('character in BaseStats', character);
+	const { modifiers, setModifiers } = useContext(DataContext);
 	const [ currentCharacter, setCurrentCharacter ] = useState({
 		baseStats: ''
 	});
@@ -378,28 +379,27 @@ function SecoundaryStats({ character }) {
 		});
 	}, []);
 
+	let init = modifiers.dexterity;
 
 	return (
-        <>
-        <StatsContainer>
-            <Stat>
+		<StatsContainer>
+			<Stat>
 				<StatName>Speed</StatName>
 				<Modifier>{currentCharacter.movement}</Modifier>
 			</Stat>
 			<Stat>
 				<StatName>Init</StatName>
-				<Modifier>+2</Modifier>
+				<Modifier>{init}</Modifier>
 			</Stat>
 			<Stat>
 				<StatName>Armor</StatName>
-				<Modifier>+2</Modifier>
+				<Modifier>{currentCharacter.armorClass}</Modifier>
 			</Stat>
 			<Stat>
 				<StatName>Prof</StatName>
 				<Modifier>+2</Modifier>
 			</Stat>
-        </StatsContainer>
-        </>
+		</StatsContainer>
 	);
 }
 

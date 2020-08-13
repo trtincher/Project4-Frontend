@@ -12,6 +12,9 @@ const Container = styled.div``;
 function Dashboard() {
 	const { activeUser, setActiveUser } = useContext(DataContext);
 	const { activeCharacter, setActiveCharacter } = useContext(DataContext);
+	const { modifiers, setModifiers } = useContext(DataContext);
+
+	console.log('ActiveCharacter in Dashboard', activeCharacter);
 
 	useEffect(() => {
 		setActiveCharacter({
