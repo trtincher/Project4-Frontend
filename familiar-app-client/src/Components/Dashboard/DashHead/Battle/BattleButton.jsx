@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGavel } from '@fortawesome/free-solid-svg-icons';
 
 const BtlButton = styled.div`
+	flex-grow: 1;
 	border: 1px solid white;
 	background: #00bbf9;
 	border-radius: 10px;
@@ -19,7 +20,7 @@ const Heading = styled.p`
 
 const Icon = styled.div``;
 
-const icon = <FontAwesomeIcon icon={faGavel} size="3x" />;
+const icon = <FontAwesomeIcon icon={faGavel} size="2x" />;
 
 function BattleButton({ character }) {
 	return (

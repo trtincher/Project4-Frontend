@@ -1,10 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { DataContext } from '../../App';
+import styled, { css } from 'styled-components';
 
 import DashHead from './DashHead/DashHead';
 import DashBody from './DashBody/DashBody';
 import DashFoot from './DashFoot/DashFoot';
+
+const Container = styled.div``;
 
 function Dashboard() {
 	const { activeUser, setActiveUser } = useContext(DataContext);
@@ -296,7 +299,7 @@ function Dashboard() {
 			],
 			_id: '5f342594481c2752d229d730',
 			name: 'Thomas the Wise',
-			avatar: 'https://i.imgur.com/Lb31Ln9.png',
+			avatar: 'https://i.imgur.com/p7WqoA8.png',
 			gender: 'Male',
 			race: 'Half-Elf',
 			class: 'Wizard',
@@ -361,11 +364,11 @@ function Dashboard() {
 	}, []);
 
 	return (
-		<div className="Dashboard">
+		<Container>
 			<DashHead character={activeCharacter} />
 			<DashBody character={activeCharacter} />
 			<DashFoot character={activeCharacter} />
-		</div>
+		</Container>
 	);
 }
 
