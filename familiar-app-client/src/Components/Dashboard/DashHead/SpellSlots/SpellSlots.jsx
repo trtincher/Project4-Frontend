@@ -5,6 +5,7 @@ import { faMagic } from '@fortawesome/free-solid-svg-icons';
 
 const Container = styled.div`
 	display: flex;
+	flex-grow: 1;
 	justify-content: space-around;
 	min-height: 25px;
 	border: 1px solid white;

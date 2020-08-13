@@ -5,6 +5,7 @@ import styled, { css } from 'styled-components';
 const AvatarContainer = styled.div`
 	background: #00bbf9;
 	display: flex;
+	flex-grow: 4;
 	border: 1px solid white;
 	border-radius: 10px;
 `;

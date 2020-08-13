@@ -5,6 +5,7 @@ import { faHeartbeat } from '@fortawesome/free-solid-svg-icons';
 
 const HpContainer = styled.div`
 	display: flex;
+	flex-grow: 3;
 	justify-content: space-around;
 	min-height: 25px;
 	border: 1px solid white;

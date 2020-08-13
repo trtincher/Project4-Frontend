@@ -1,3 +1,4 @@
+
 import React, { useState, useContext, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 
@@ -5,13 +6,11 @@ const StatsContainer = styled.div`
 	display: flex;
 	justify-content: space-around;
 	min-height: 25px;
-	width: 100%;
 	border: 1px solid white;
 	background: #00bbf9;
 	border-radius: 10px;
 `;
 const Stat = styled.div`
-	flex-grow: 1;
 	border: 1px solid white;
 	background: #00bbf9;
 	border-radius: 10px;
@@ -26,12 +25,11 @@ const StatName = styled.h1`
 	margin: 0;
 `;
 
-function BaseStats({ character }) {
+function SecoundaryStats({ character }) {
 	console.log('character in BaseStats', character);
 	const [ currentCharacter, setCurrentCharacter ] = useState({
 		baseStats: ''
 	});
-	const [ stats, setStats ] = useState([]);
 
 	useEffect(() => {
 		setCurrentCharacter({
@@ -383,22 +381,29 @@ function BaseStats({ character }) {
 		});
 	}, []);
 
-	// const stats = character === undefined ? {} : character.baseStats;
-	const statShort = [ 'str', 'dex', 'con', 'int', 'wis', 'char' ];
-	const statNames = [ 'strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma' ];
 
-	const statsMap = () => {
-		const stats = statNames.map((stat, i) => (
-			<Stat>
-				<StatName>{statShort[i]}</StatName>
-				<Modifier>{currentCharacter.baseStats[stat]}</Modifier>
+	return (
+        <>
+        <StatsContainer>
+            <Stat>
+				<StatName>Speed</StatName>
+				<Modifier>{currentCharacter.movement}</Modifier>
 			</Stat>
-		));
-
-		return stats;
-	};
-
-	return <StatsContainer>{statsMap()}</StatsContainer>;
+			<Stat>
+				<StatName>Init</StatName>
+				<Modifier>+2</Modifier>
+			</Stat>
+			<Stat>
+				<StatName>Armor</StatName>
+				<Modifier>+2</Modifier>
+			</Stat>
+			<Stat>
+				<StatName>Prof</StatName>
+				<Modifier>+2</Modifier>
+			</Stat>
+        </StatsContainer>
+        </>
+	);
 }
 
-export default BaseStats;
+export default SecoundaryStats;

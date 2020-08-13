@@ -8,6 +8,7 @@ const BtlButton = styled.div`
 	border: 1px solid white;
 	background: #00bbf9;
 	border-radius: 10px;
+	width: 70px;
 `;
 
 const Heading = styled.p`
@@ -16,13 +17,15 @@ const Heading = styled.p`
 	margin: 0;
 `;
 
-const icon = <FontAwesomeIcon icon={faGavel} />;
+const Icon = styled.div``;
+
+const icon = <FontAwesomeIcon icon={faGavel} size="3x" />;
 
 function BattleButton({ character }) {
 	return (
 		<BtlButton>
 			<Heading>Battle</Heading>
-			{icon}
+			<Icon>{icon}</Icon>
 		</BtlButton>
 	);
 }
