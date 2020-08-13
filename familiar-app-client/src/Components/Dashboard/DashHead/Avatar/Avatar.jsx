@@ -51,8 +51,8 @@ const SubHeader = styled.h2`
 `;
 
 function Avatar({ character }) {
-	console.log('character in Avatar', character);
-	console.log('avatar in Avatar', character.avatar);
+	// console.log('character in Avatar', character);
+	// console.log('avatar in Avatar', character.avatar);
 	return (
 		<AvatarContainer className="Avatar">
 			<Lvl>{`Lvl ${character.level}`}</Lvl>

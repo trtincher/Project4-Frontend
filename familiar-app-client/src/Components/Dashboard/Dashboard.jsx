@@ -12,6 +12,9 @@ const Container = styled.div``;
 function Dashboard() {
 	const { activeUser, setActiveUser } = useContext(DataContext);
 	const { activeCharacter, setActiveCharacter } = useContext(DataContext);
+	const { modifiers, setModifiers } = useContext(DataContext);
+
+	console.log('ActiveCharacter in Dashboard', activeCharacter);
 
 	useEffect(() => {
 		setActiveCharacter({
@@ -32,6 +35,9 @@ function Dashboard() {
 				'Shove',
 				'Use and Object'
 			],
+			spellSlots: {
+				1: 2
+			},
 			spells: [
 				{
 					_id: '5f31b3230b1bb138c5a62b38',

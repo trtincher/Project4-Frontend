@@ -1,6 +1,6 @@
-
 import React, { useState, useContext, useEffect } from 'react';
 import styled, { css } from 'styled-components';
+import { DataContext } from '../../../../App';
 
 const StatsContainer = styled.div`
 	display: flex;
@@ -23,7 +23,8 @@ const StatName = styled.h1`
 `;
 
 function SecoundaryStats({ character }) {
-	console.log('character in BaseStats', character);
+	// console.log('character in BaseStats', character);
+	const { modifiers, setModifiers } = useContext(DataContext);
 	const [ currentCharacter, setCurrentCharacter ] = useState({
 		baseStats: ''
 	});
@@ -378,28 +379,52 @@ function SecoundaryStats({ character }) {
 		});
 	}, []);
 
+	let init = modifiers.dexterity;
+
+	const profTable = {
+		1: 2,
+		2: 2,
+		3: 2,
+		4: 2,
+		5: 3,
+		6: 3,
+		7: 3,
+		8: 3,
+		9: 4,
+		10: 4,
+		11: 4,
+		12: 4,
+		13: 5,
+		14: 5,
+		15: 5,
+		16: 5,
+		17: 6,
+		18: 6,
+		19: 6,
+		20: 6
+	};
+
+	let prof = profTable[currentCharacter.level];
 
 	return (
-        <>
-        <StatsContainer>
-            <Stat>
+		<StatsContainer>
+			<Stat>
 				<StatName>Speed</StatName>
 				<Modifier>{currentCharacter.movement}</Modifier>
 			</Stat>
 			<Stat>
 				<StatName>Init</StatName>
-				<Modifier>+2</Modifier>
+				<Modifier>{init}</Modifier>
 			</Stat>
 			<Stat>
 				<StatName>Armor</StatName>
-				<Modifier>+2</Modifier>
+				<Modifier>{currentCharacter.armorClass}</Modifier>
 			</Stat>
 			<Stat>
 				<StatName>Prof</StatName>
-				<Modifier>+2</Modifier>
+				<Modifier>{prof}</Modifier>
 			</Stat>
-        </StatsContainer>
-        </>
+		</StatsContainer>
 	);
 }
 
