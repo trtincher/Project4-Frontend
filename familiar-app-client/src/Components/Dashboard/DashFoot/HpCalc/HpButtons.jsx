@@ -29,16 +29,22 @@ const minus = <FontAwesomeIcon icon={faMinus} size="3x" />;
 const solidHeart = <FontAwesomeIcon icon={faHeart} size="3x" />;
 const brokenHeart = <FontAwesomeIcon icon={faHeartBroken} size="3x" />;
 
-const handlePlusClick = () => {};
+function HpButtons({ isPlus, setIsPlus, isMin, setIsMin }) {
+	const handlePlusClick = () => {
+		setIsPlus(!isPlus);
+	};
 
-function HpButtons() {
+	const handleMinClick = () => {
+		setIsMin(!isMin);
+	};
+
 	return (
 		<Container>
 			<Unit onClick={handlePlusClick}>
 				<PlusIcon>{plus}</PlusIcon>
 				<SolidHeartIcon>{solidHeart}</SolidHeartIcon>
 			</Unit>
-			<Unit>
+			<Unit onClick={handleMinClick}>
 				<MinusIcon>{minus}</MinusIcon>
 				<BrokenHeartIcon>{brokenHeart}</BrokenHeartIcon>
 			</Unit>

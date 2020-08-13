@@ -18,15 +18,18 @@ const RowOne = styled.div`display: flex;`;
 const RowTwo = styled.div`display: flex;`;
 
 function DashFoot() {
+	const [ isPlus, setIsPlus ] = useState(false);
+	const [ isMin, setIsMin ] = useState(false);
+
 	return (
 		<Container>
 			<RowOne>
-				<HpCalc />
+				<HpCalc isPlus={isPlus} isMin={isMin} />
 			</RowOne>
 			<RowTwo>
 				<DiceIcon />
 				<HpDisplay />
-				<HpButtons />
+				<HpButtons isPlus={isPlus} setIsPlus={setIsPlus} isMin={isMin} setIsMin={setIsMin} />
 			</RowTwo>
 		</Container>
 	);

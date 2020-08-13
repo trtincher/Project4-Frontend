@@ -16,7 +16,9 @@ const Unit = styled.div`
 	width: 90px;
 `;
 
-function HpCalc() {
+const InvisibleUnit = styled.div`width: 110px;`;
+
+function HpCalc({ isPlus, isMin }) {
 	const { activeCharacter, setActiveCharacter } = useContext(DataContext);
 	const [ currentRange, setCurrentRange ] = useState([]);
 	const [ maxRange, setMaxRange ] = useState([]);
@@ -55,8 +57,8 @@ function HpCalc() {
 
 	return (
 		<Container>
-			<Unit>{maxRange}</Unit>
-			<Unit>{currentRange}</Unit>
+			{isPlus ? <Unit>{maxRange}</Unit> : <InvisibleUnit />}
+			{isMin ? <Unit>{currentRange}</Unit> : <InvisibleUnit />}
 		</Container>
 	);
 }
