@@ -7,6 +7,7 @@ const HpContainer = styled.div`
 	display: flex;
 	flex-grow: 3;
 	justify-content: space-around;
+	align-items: center;
 	min-height: 25px;
 	border: 1px solid white;
 	background: #00bbf9;
