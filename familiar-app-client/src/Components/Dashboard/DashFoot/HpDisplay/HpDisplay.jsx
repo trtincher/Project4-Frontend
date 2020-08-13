@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import styled, { css } from 'styled-components';
+import { DataContext } from '../../../../App';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeartbeat } from '@fortawesome/free-solid-svg-icons';
 
@@ -34,20 +35,36 @@ const Icon = styled.div``;
 const icon = <FontAwesomeIcon icon={faHeartbeat} size="3x" />;
 
 const HpDisplay = () => {
+	const { activeCharacter, setActiveCharacter } = useContext(DataContext);
+	const [ current, setCurrent ] = useState(0);
+	const [ max, setMax ] = useState(0);
+	const [ temp, setTemp ] = useState(0);
+
+	useEffect(
+		() => {
+			if (activeCharacter.hp !== undefined) {
+				setCurrent(activeCharacter.hp.current);
+				setMax(activeCharacter.hp.max);
+				setTemp(activeCharacter.hp.temp);
+			}
+		},
+		[ activeCharacter ]
+	);
+
 	return (
 		<HpContainer>
 			{icon}
 			<Card>
 				<Header>Current</Header>
-				<Value>25</Value>
+				<Value>{current}</Value>
 			</Card>
 			<Card>
 				<Header>Max</Header>
-				<Value>25</Value>
+				<Value>{max}</Value>
 			</Card>
 			<Card>
 				<Header>Temp</Header>
-				<Value>-</Value>
+				<Value>{temp}</Value>
 			</Card>
 		</HpContainer>
 	);

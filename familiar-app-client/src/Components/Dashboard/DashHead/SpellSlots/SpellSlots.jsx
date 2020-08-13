@@ -70,21 +70,6 @@ const SpellSlot = () => {
 		20: 9
 	};
 
-	// const determineSlots = () => {
-	// 	let lvl = activeCharacter.level;
-	// 	let spellLvl = slotLvls[lvl];
-	// 	const slots = [];
-	// 	for (let i = 1; i <= spellLvl; i++) {
-	// 		let slot = (
-	// 			<Slot>
-	// 				<Value>1</Value>
-	// 			</Slot>
-	// 		);
-	// 		slots.push(slot);
-	// 	}
-	// 	return slots;
-	// };
-
 	const determineSlots = () => {
 		let lvl = activeCharacter.level;
 		let spellLvl = slotLvls[lvl];
