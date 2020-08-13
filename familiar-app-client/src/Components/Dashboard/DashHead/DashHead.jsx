@@ -5,6 +5,8 @@ import StyledHead from './StyledHead';
 import Avatar from './Avatar/Avatar';
 import BattleButton from './Battle/BattleButton';
 import BaseStats from './Stats/BaseStats';
+import HpDisplay from './HpDisplay/HpDisplay';
+import SpellSlot from './SpellSlots/SpellSlots';
 
 function DashHead({ character }) {
 	return (
@@ -12,6 +14,8 @@ function DashHead({ character }) {
 			<Avatar character={character} />
 			<BattleButton />
 			<BaseStats character={character} />
+			<HpDisplay />
+			<SpellSlot />
 		</StyledHead>
 	);
 }

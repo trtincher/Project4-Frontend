@@ -396,7 +396,31 @@ function BaseStats({ character }) {
 		return stats;
 	};
 
-	return <StatsContainer>{statsMap()}</StatsContainer>;
+	return (
+        <>
+		<StatsContainer>
+			{statsMap()}
+		</StatsContainer>
+        <StatsContainer>
+            <Stat>
+				<StatName>Speed</StatName>
+				<Modifier>{currentCharacter.movement}</Modifier>
+			</Stat>
+			<Stat>
+				<StatName>Init</StatName>
+				<Modifier>+2</Modifier>
+			</Stat>
+			<Stat>
+				<StatName>Armor</StatName>
+				<Modifier>+2</Modifier>
+			</Stat>
+			<Stat>
+				<StatName>Prof</StatName>
+				<Modifier>+2</Modifier>
+			</Stat>
+        </StatsContainer>
+        </>
+	);
 }
 
 export default BaseStats;
