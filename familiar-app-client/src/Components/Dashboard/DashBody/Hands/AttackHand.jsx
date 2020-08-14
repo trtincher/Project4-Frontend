@@ -24,7 +24,7 @@ const book = <FontAwesomeIcon icon={faBook} size="6x" />;
 const tools = <FontAwesomeIcon icon={faTools} size="6x" />;
 
 function ActionHand() {
-	const { activeCharacter, setActiveCharacter, setIsHand, isHand, hand, setHand } = useContext(DataContext);
+	const { activeCharacter, setActiveCharacter, setIsHand, isHand, hand, setHand, setIsPlayed } = useContext(DataContext);
     const [ currentHand, setCurrentHand ] = useState([]);
     const [ attacks, setAttacks] = useState([])
 
@@ -47,7 +47,7 @@ function ActionHand() {
 	);
 
 	const handleActionClick = (action) => {
-		setHand(action);
+		setIsPlayed(true)
 	};
 
 	const nonSpellAttacks = ()=>{
@@ -63,6 +63,9 @@ function ActionHand() {
 		const curHand = attacks.map((item) => (
 			<Card onClick={() => handleActionClick(item.name)} width="100px" height="180px" backgroundColor="#FEE440">
 				<h4>{item.name}</h4>
+                <p>{item.category_range}</p>
+                <p>{item.damage.damage_dice}</p>
+                <p>{item.damage.damage_type.name}</p>
 			</Card>
 		));
 		curHand.push(

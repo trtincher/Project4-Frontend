@@ -9,6 +9,7 @@ import { DataContext } from '../../../App';
 
 import Decks from './Decks/Decks';
 import Hands from './Hands/Hands';
+import DamageCard from './DamageCard/DamageCard';
 
 const Container = styled.div`
 	margin: 0;
@@ -30,12 +31,14 @@ function DashBody() {
 	const { activeCharacter, setActiveCharacter } = useContext(DataContext);
 	const [ isHand, setIsHand ] = useState('');
 	const [ hand, setHand ] = useState('');
+	const [ isPlayed, setIsPlayed ] = useState(false);
 
 	return (
 		<Container>
-			<DataContext.Provider value={{ setIsHand, isHand, hand, setHand, activeCharacter }}>
+			<DataContext.Provider value={{ setIsHand, isHand, hand, setHand, activeCharacter, isPlayed, setIsPlayed }}>
 				<Decks />
 				<Hands />
+				<DamageCard />
 			</DataContext.Provider>
 		</Container>
 	);
