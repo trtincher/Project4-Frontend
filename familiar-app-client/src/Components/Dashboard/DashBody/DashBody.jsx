@@ -33,7 +33,7 @@ function DashBody() {
 
 	return (
 		<Container>
-			<DataContext.Provider value={{ setIsHand, isHand, hand, setHand }}>
+			<DataContext.Provider value={{ setIsHand, isHand, hand, setHand, activeCharacter }}>
 				<Decks />
 				<Hands />
 			</DataContext.Provider>

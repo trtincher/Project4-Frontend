@@ -28,12 +28,24 @@ const tools = <FontAwesomeIcon icon={faTools} size="6x" />;
 function Hands() {
 	const { activeCharacter, setActiveCharacter, setIsHand, isHand, hand, setHand } = useContext(DataContext);
 
-	return (
-		<CardContainer>
+	const HandleBackClick = () => {
+		setIsHand(false);
+		setHand('');
+	};
+
+	const hands = (
+		<>
 			<ActionHand />
 			<SpellsHand />
 			<SkillsHand />
 			<EquipmentHand />
+			{/* {isHand ? <button onClick={HandleBackClick}>Back</button> : null} */}
+		</>
+	)
+
+	return (
+		<CardContainer>
+			{hands}
 		</CardContainer>
 	);
 }

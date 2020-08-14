@@ -10,8 +10,6 @@ import { DataContext } from '../../../../App';
 import CardContainer from '../../../Card/CardContainer';
 import Card from '../../../Card/Card';
 
-import AttackHand from './AttackHand';
-
 const Container = styled.div``;
 
 const actionColor = '#FEE440';
@@ -27,7 +25,8 @@ const tools = <FontAwesomeIcon icon={faTools} size="6x" />;
 
 function ActionHand() {
 	const { activeCharacter, setActiveCharacter, setIsHand, isHand, hand, setHand } = useContext(DataContext);
-	const [ currentHand, setCurrentHand ] = useState([]);
+    const [ currentHand, setCurrentHand ] = useState([]);
+    const [ attacks, setAttacks] = useState([])
 
 	console.log('activeCharacter in Action Hand', activeCharacter);
 	console.log('currentHand in Action', currentHand);
@@ -37,6 +36,9 @@ function ActionHand() {
 			console.log('action hand useEffect');
 
 			if (activeCharacter.actions !== undefined) {
+                let a = nonSpellAttacks()
+                setAttacks(a)
+
 				let h = makeHand();
 				setCurrentHand(h);
 			}
@@ -48,30 +50,34 @@ function ActionHand() {
 		setHand(action);
 	};
 
+	const nonSpellAttacks = ()=>{
+        activeCharacter.equipment.map((item)=>{
+            if(item.equipment_category.name === 'Weapon' && item.equiped === true){
+                let att = attacks
+                setAttacks( att.push(item))
+            }
+        })
+    }
+
 	const makeHand = () => {
-		const curHand = activeCharacter.actions.map((action) => (
-			<Card onClick={() => handleActionClick(action)} width="100px" height="180px" backgroundColor="#FEE440">
-				<h3>{action}</h3>
+		const curHand = attacks.map((item) => (
+			<Card onClick={() => handleActionClick(item.name)} width="100px" height="180px" backgroundColor="#FEE440">
+				<h4>{item.name}</h4>
 			</Card>
 		));
+		curHand.push(
+			<Card onClick={() => handleActionClick('Unarmed')} width="100px" height="180px" backgroundColor="#FEE440">
+				<h4>Unarmed</h4>
+			</Card>
+		);
 		return curHand;
 	};
 
-	const HandleBackClick = () => {
-		setIsHand(false);
-		setHand('');
-	};
-
 	return (
-		<Container>
-			{isHand && hand ? <button onClick={HandleBackClick}>Back</button> : null}
-
-			{isHand && hand === 'Actions' ? <h1>Actions</h1> : null}
-			<CardContainer>
-				{isHand && hand === 'Actions' ? currentHand : null}
-				<AttackHand />
-			</CardContainer>
-		</Container>
+        <>
+			{isHand && hand === 'Attack' ? <h1>Attack</h1> : null}
+			<CardContainer>{isHand && hand === 'Attack' ? currentHand : null}</CardContainer>
+        </>
 	);
 }
 

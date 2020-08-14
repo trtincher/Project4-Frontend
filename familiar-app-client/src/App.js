@@ -368,7 +368,7 @@ function App() {
 			__v: 0
 		}
 	]);
-	const [ activeCharacter, setActiveCharacter ] = useState([]);
+	const [ activeCharacter, setActiveCharacter ] = useState({});
 	const [ modifiers, setModifiers ] = useState({});
 	// console.log('activeUser in App', activeUser);
 	// console.log('activeCharacter in App', activeCharacter);

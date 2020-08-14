@@ -25,10 +25,7 @@ function EquipmentHand() {
     const { activeCharacter, setActiveCharacter, setIsHand, isHand, hand, setHand } = useContext(DataContext);
 
     
-    const HandleBackClick = ()=>{
-        setIsHand(false)
-        setHand('')
-    }
+
 
     const currentHand = (
         <>
@@ -39,7 +36,7 @@ function EquipmentHand() {
             <Card>Equipment</Card>
             <Card>Equipment</Card>
             <Card>Equipment</Card>
-            <button onClick={HandleBackClick}>Back</button>
+            
         </>
     )
 

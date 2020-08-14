@@ -39,7 +39,6 @@ function SkillsHand() {
             <Card>Skills</Card>
             <Card>Skills</Card>
             <Card>Skills</Card>
-            <button onClick={HandleBackClick}>Back</button>
         </>
     )
 
