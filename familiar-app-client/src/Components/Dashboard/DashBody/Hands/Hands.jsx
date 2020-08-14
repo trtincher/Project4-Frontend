@@ -11,6 +11,8 @@ import CardContainer from '../../../Card/CardContainer';
 import Card from '../../../Card/Card';
 import ActionHand from './ActionHand';
 import SpellsHand from './SpellsHand';
+import SkillsHand from './SkillsHand';
+import EquipmentHand from './EquipmentHand';
 
 const actionColor = '#FEE440';
 const spellColor = '#9b5de5';
@@ -24,12 +26,14 @@ const book = <FontAwesomeIcon icon={faBook} size="6x" />;
 const tools = <FontAwesomeIcon icon={faTools} size="6x" />;
 
 function Hands() {
-	const { activeCharacter, setActiveCharacter } = useContext(DataContext);
+	const { activeCharacter, setActiveCharacter, setIsHand, isHand, hand, setHand } = useContext(DataContext);
 
 	return (
 		<CardContainer>
 			<ActionHand />
 			<SpellsHand />
+			<SkillsHand />
+			<EquipmentHand />
 		</CardContainer>
 	);
 }

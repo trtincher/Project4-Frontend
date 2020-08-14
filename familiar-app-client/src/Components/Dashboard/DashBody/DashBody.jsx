@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, createContext } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import apiURL from '../../../apiConfig';
 import axios from 'axios';
@@ -28,11 +28,15 @@ const tools = <FontAwesomeIcon icon={faTools} size="6x" />;
 
 function DashBody() {
 	const { activeCharacter, setActiveCharacter } = useContext(DataContext);
+	const [ isHand, setIsHand ] = useState('');
+	const [ hand, setHand ] = useState('');
 
 	return (
 		<Container>
-			<Decks />
-			<Hands />
+			<DataContext.Provider value={{ setIsHand, isHand, hand, setHand }}>
+				<Decks />
+				<Hands />
+			</DataContext.Provider>
 		</Container>
 	);
 }

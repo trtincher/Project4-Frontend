@@ -21,9 +21,10 @@ const bookmark = <FontAwesomeIcon icon={faBookmark} size="6x" />;
 const book = <FontAwesomeIcon icon={faBook} size="6x" />;
 const tools = <FontAwesomeIcon icon={faTools} size="6x" />;
 
-function ActionHand() {
+function EquipmentHand() {
     const { activeCharacter, setActiveCharacter, setIsHand, isHand, hand, setHand } = useContext(DataContext);
 
+    
     const HandleBackClick = ()=>{
         setIsHand(false)
         setHand('')
@@ -31,21 +32,20 @@ function ActionHand() {
 
     const currentHand = (
         <>
-            <Card>Action</Card>
-            <Card>Action</Card>
-            <Card>Action</Card>
-            <Card>Action</Card>
-            <Card>Action</Card>
-            <Card>Action</Card>
-            <Card>Action</Card>
+            <Card>Equipment</Card>
+            <Card>Equipment</Card>
+            <Card>Equipment</Card>
+            <Card>Equipment</Card>
+            <Card>Equipment</Card>
+            <Card>Equipment</Card>
+            <Card>Equipment</Card>
             <button onClick={HandleBackClick}>Back</button>
         </>
     )
 
-
 	return <CardContainer>
-        {isHand && hand==='Actions'? currentHand: null}
-    </CardContainer>
+    {isHand && hand==='Equipment'? currentHand: null}
+</CardContainer>
 }
 
-export default ActionHand;
+export default EquipmentHand;

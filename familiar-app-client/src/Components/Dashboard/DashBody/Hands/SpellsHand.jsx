@@ -22,9 +22,30 @@ const book = <FontAwesomeIcon icon={faBook} size="6x" />;
 const tools = <FontAwesomeIcon icon={faTools} size="6x" />;
 
 function SpellsHand() {
-	const { activeCharacter, setActiveCharacter } = useContext(DataContext);
+    const { activeCharacter, setActiveCharacter, setIsHand, isHand, hand, setHand } = useContext(DataContext);
 
-	return <CardContainer />;
+    
+    const HandleBackClick = ()=>{
+        setIsHand(false)
+        setHand('')
+    }
+
+    const currentHand = (
+        <>
+            <Card>Spell</Card>
+            <Card>Spell</Card>
+            <Card>Spell</Card>
+            <Card>Spell</Card>
+            <Card>Spell</Card>
+            <Card>Spell</Card>
+            <Card>Spell</Card>
+            <button onClick={HandleBackClick}>Back</button>
+        </>
+    )
+
+	return <CardContainer>
+    {isHand && hand==='Spells'? currentHand: null}
+</CardContainer>
 }
 
 export default SpellsHand;

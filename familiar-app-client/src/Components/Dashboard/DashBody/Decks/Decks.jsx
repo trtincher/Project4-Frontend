@@ -22,23 +22,28 @@ const book = <FontAwesomeIcon icon={faBook} size="6x" />;
 const tools = <FontAwesomeIcon icon={faTools} size="6x" />;
 
 function Decks() {
-	const { activeCharacter, setActiveCharacter } = useContext(DataContext);
+	const { activeCharacter, setActiveCharacter, setIsHand, setHand, isHand } = useContext(DataContext);
 
-	return (
-		<CardContainer>
-			<Card backgroundColor={actionColor}>
+	const handleDeckClick = (text) => {
+		setHand(text);
+		setIsHand(true);
+    };
+    
+    const decks =(
+        <>
+            <Card backgroundColor={actionColor} onClick={() => handleDeckClick('Actions')}>
 				<h2>Actions</h2>
 				{gavel}
 			</Card>
-			<Card backgroundColor={spellColor}>
+			<Card backgroundColor={spellColor} onClick={() => handleDeckClick('Spells')}>
 				<h2>Spells</h2>
 				{book}
 			</Card>
-			<Card backgroundColor={equipmentColor}>
+			<Card backgroundColor={equipmentColor} onClick={() => handleDeckClick('Equipment')}>
 				<h2>Equipment</h2>
 				{tools}
 			</Card>
-			<Card backgroundColor={skillsColor}>
+			<Card backgroundColor={skillsColor} onClick={() => handleDeckClick('Skills')}>
 				<h2>Skills</h2>
 				{bookmark}
 			</Card>
@@ -63,6 +68,12 @@ function Decks() {
 			<Card backgroundColor={otherColor}>
 				<h2>Conditions</h2>
 			</Card>
+        </>
+    )
+
+	return (
+		<CardContainer>
+			{isHand? null: decks}
 		</CardContainer>
 	);
 }
