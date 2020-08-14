@@ -37,9 +37,11 @@ function ActionHand() {
 
 			if (activeCharacter.actions !== undefined) {
                 let a = nonSpellAttacks()
+                console.log('a', a)
                 setAttacks(a)
 
-				let h = makeHand();
+                let h = makeHand();
+                console.log('h', h)
 				setCurrentHand(h);
 			}
 		},
@@ -54,14 +56,20 @@ function ActionHand() {
 	const nonSpellAttacks = ()=>{
         activeCharacter.equipment.map((item)=>{
             if(item.equipment_category.name === 'Weapon' && item.equiped === true){
-                let att = attacks
-                setAttacks( att.push(item))
+               if(attacks !== undefined){
+                    setAttacks( [...attacks, item])
+               }else{
+                 setAttacks( [item])
+               }
             }
         })
+        console.log('attacks in nonSpellAttacks', attacks)
     }
 
 	const makeHand = () => {
-		const curHand = attacks.map((item) => (
+        console.log('attacks in makeHand', attacks)
+        if(attacks !== undefined)
+		{const curHand = attacks.map((item) => (
 			<Card onClick={() => handleActionClick(item)} width="100px" height="180px" backgroundColor="#FEE440">
 				<h4>{item.name}</h4>
                 <p>{item.category_range}</p>
@@ -74,7 +82,7 @@ function ActionHand() {
 				<h4>Unarmed</h4>
 			</Card>
 		);
-		return curHand;
+		return curHand;}
 	};
 
 	return (

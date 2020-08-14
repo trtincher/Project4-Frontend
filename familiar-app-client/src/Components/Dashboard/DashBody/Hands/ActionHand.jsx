@@ -64,7 +64,7 @@ function ActionHand() {
 
 	return (
 		<Container>
-			{isHand && hand ? <button onClick={HandleBackClick}>Back</button> : null}
+			{isHand && hand ? <button onClick={HandleBackClick}>Home</button> : null}
 
 			{isHand && hand === 'Actions' ? <h1>Actions</h1> : null}
 			<CardContainer>

@@ -43,6 +43,7 @@ function DashBody() {
 					hand,
 					setHand,
 					activeCharacter,
+					setActiveCharacter,
 					isPlayed,
 					setIsPlayed,
 					activeAction,
