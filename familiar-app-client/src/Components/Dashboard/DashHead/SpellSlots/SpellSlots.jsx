@@ -41,8 +41,10 @@ const SpellSlot = () => {
 
 	useEffect(
 		() => {
-			let s = determineSlots();
-			setSpellSlots(s);
+			if (activeCharacter.spellSlots !== undefined) {
+				let s = determineSlots();
+				setSpellSlots(s);
+			}
 		},
 		[ activeCharacter ]
 	);
