@@ -1,14 +1,6 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { DataContext } from '../../../../App';
-
-import Card from '../../../Card/Card';
-import CardContainer from '../../../Card/CardContainer';
-
-const Container = styled.div`
-	margin: 0;
-	height: 1000px;
-`;
 
 const DCard = styled.div`
 	background: red;
@@ -23,9 +15,18 @@ const DCard = styled.div`
 `;
 
 function DamageCard() {
-	const { isPlayed, setIsPlayed } = useContext(DataContext);
-	const [ isHand, setIsHand ] = useState('');
-	const [ hand, setHand ] = useState('');
+	const { isPlayed, setIsPlayed, activeAction, setActiveAction } = useContext(DataContext);
+	const [ damage, setDamage ] = useState('');
+
+	useEffect(
+		() => {
+			if (activeAction.damage !== undefined) {
+				let d = setDCard();
+				setDamage(d);
+			}
+		},
+		[ activeAction ]
+	);
 
 	const handConfirmClick = () => {
 		console.log('confirm');
@@ -36,18 +37,21 @@ function DamageCard() {
 		setIsPlayed(false);
 	};
 
-	const dCard = (
-		<DCard>
-			<h1>Damage</h1>
-			<h3>Weapon</h3>
-			<h4>Damage Amount: #</h4>
-			<h4>Damage Type: Type</h4>
-			<button onClick={handConfirmClick}>Confirm</button>
-			<button onClick={handCancelClick}>Cancel</button>
-		</DCard>
-	);
+	const setDCard = () => {
+		const dCard = (
+			<DCard>
+				<h1>Damage</h1>
+				<h3>{activeAction.name}</h3>
+				<h4>Damage Amount: {activeAction.damage.damage_dice}</h4>
+				<h4>Damage Type: {activeAction.damage.damage_type.name}</h4>
+				<button onClick={handConfirmClick}>Confirm</button>
+				<button onClick={handCancelClick}>Cancel</button>
+			</DCard>
+		);
+		return dCard;
+	};
 
-	return <div>{isPlayed ? dCard : null}</div>;
+	return <div>{isPlayed ? damage : null}</div>;
 }
 
 export default DamageCard;

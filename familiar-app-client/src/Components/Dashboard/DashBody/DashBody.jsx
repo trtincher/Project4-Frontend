@@ -32,10 +32,23 @@ function DashBody() {
 	const [ isHand, setIsHand ] = useState('');
 	const [ hand, setHand ] = useState('');
 	const [ isPlayed, setIsPlayed ] = useState(false);
+	const [ activeAction, setActiveAction ] = useState({});
 
 	return (
 		<Container>
-			<DataContext.Provider value={{ setIsHand, isHand, hand, setHand, activeCharacter, isPlayed, setIsPlayed }}>
+			<DataContext.Provider
+				value={{
+					setIsHand,
+					isHand,
+					hand,
+					setHand,
+					activeCharacter,
+					isPlayed,
+					setIsPlayed,
+					activeAction,
+					setActiveAction
+				}}
+			>
 				<Decks />
 				<Hands />
 				<DamageCard />
