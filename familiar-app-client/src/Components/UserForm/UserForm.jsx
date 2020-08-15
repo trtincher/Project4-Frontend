@@ -22,14 +22,20 @@ const FormInput = styled.input`
 `;
 
 const FormButton = styled.button`
-	margin: .5rem 0;
-	background: #00bbf9;
+	margin: 0;
 	padding: 0;
+	color: white;
+	font-size: 1.5rem;
+	background: none;
+	border: none;
 `;
 
 const FormLink = styled(Link)`
 	text-decoration: none;
-	color: black;
+	color: white;
+	background: none;
+	box-shadow: none;
+
 `;
 
 function UserForm({ type, props }) {
