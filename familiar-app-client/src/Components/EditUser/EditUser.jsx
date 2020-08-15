@@ -56,12 +56,10 @@ function EditUser(props) {
 				url: `${apiURL}/users/${id}`,
 				method: 'DELETE'
 			});
+			console.log('Delect res', res);
 		} catch (err) {
 			console.error(err);
 		}
-
-		console.log('Delect res', res);
-		setIsDeleted(true);
 	};
 
 	const deleteCard = (

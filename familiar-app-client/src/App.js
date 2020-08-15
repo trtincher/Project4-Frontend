@@ -19,7 +19,7 @@ function App() {
 	const [ modifiers, setModifiers ] = useState({});
 	// console.log('activeUser in App', activeUser);
 	// console.log('activeCharacter in App', activeCharacter);
-	console.log('modifiers in App', modifiers);
+	// console.log('modifiers in App', modifiers);
 
 	const mods = () => {
 		const modCalc = {

@@ -1,7 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { DataContext } from '../../App';
 import Card from '../Card/Card';
 import CardContainer from '../Card/CardContainer';
+import CreateCharacter from '../CreateCharacter/CreateCharacter';
 
 function Characters(props) {
 	const { activeUser, setActiveUser } = useContext(DataContext);
@@ -41,7 +43,7 @@ function Characters(props) {
 		<div>
 			<h1>{`${userName} Select Your Character`}</h1>
 			<CardContainer className="Characters">{characterMap}</CardContainer>
-			<button>CREATE NEW CHARACTER</button>
+			<Link to="/createCharacter">CREATE NEW CHARACTER</Link>
 		</div>
 	);
 }

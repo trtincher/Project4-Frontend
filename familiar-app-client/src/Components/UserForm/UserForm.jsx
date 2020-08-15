@@ -43,8 +43,8 @@ function UserForm({ type, props }) {
 	const [ email, setEmail ] = useState('');
 	const [ id, setId ] = useState('');
 
-	console.log('activeUser in UserForm', activeUser);
-	console.log('type in UserForm', type);
+	// console.log('activeUser in UserForm', activeUser);
+	// console.log('type in UserForm', type);
 
 	useEffect(() => {
 		if (activeUser[0] !== undefined) {
@@ -55,7 +55,7 @@ function UserForm({ type, props }) {
 	}, []);
 
 	const handleChange = (e) => {
-		console.log('field', e.target.name, e.target.value);
+		// console.log('field', e.target.name, e.target.value);
 		setUser({
 			...user,
 			[e.target.name]: e.target.value
@@ -68,7 +68,7 @@ function UserForm({ type, props }) {
 		const getUser = async () => {
 			try {
 				const response = await axios(`${apiURL}/users/email/${user.email}`);
-				console.log('Response getUser', response);
+				// console.log('Response getUser', response);
 				if (response.data.length > 0) {
 					setActiveUser(response.data);
 					props.history.push('/characters');
@@ -100,9 +100,9 @@ function UserForm({ type, props }) {
 
 	const handleEditSubmit = async (event) => {
 		event.preventDefault();
-		console.log('handleEditSubmit');
-		console.log('user', user);
-		console.log('id', id);
+		// console.log('handleEditSubmit');
+		// console.log('user', user);
+		// console.log('id', id);
 		try {
 			const res = await axios({
 				url: `${apiURL}/users/${id}`,
@@ -150,7 +150,7 @@ function UserForm({ type, props }) {
 					<h3>Submit</h3>
 				</FormButton>
 				<FormButton>
-					<FormLink to="/dashboard">
+					<FormLink to="/">
 						<h3>Cancel</h3>
 					</FormLink>
 				</FormButton>

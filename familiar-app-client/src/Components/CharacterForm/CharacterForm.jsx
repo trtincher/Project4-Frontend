@@ -1,25 +1,37 @@
-import React from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import styled, { css } from 'styled-components';
+import { DataContext } from '../../App';
 
-function StudentForm({ type, subject, handleSubmit, handleChange, cancelPath }) {
-	console.log('StudentForm type', type);
+const FormContainer = styled.div``;
+
+const Form = styled.form``;
+
+const Input = styled.input``;
+
+function CharacterForm({ character, handleSubmit, handleChange, cancelPath }) {
+	const { activeUser, setActiveUser, activeCharacter, setActiveCharacter } = useContext(DataContext);
 
 	return (
-		<div className="StudentForm">
-			<form onSubmit={handleSubmit}>
-				<label>Text</label>
-				<input placeholder={'Text here'} value={subject} name="field1" onChange={handleChange} />
+		<FormContainer>
+			<Form onSubmit={handleSubmit}>
+				<Input placeholder={'name'} value={character.name} name="name" onChange={handleChange} />
 
-				<label>Text</label>
-				<input placeholder={`Text here`} value={subject} name="field2" onChange={handleChange} />
+				<Input placeholder={`class`} value={character.class} name="class" onChange={handleChange} />
 
-				<button type="submit">Submit</button>
+				<Input placeholder={`gender`} value={character.gender} name="gender" onChange={handleChange} />
+
+				<Input placeholder={`race`} value={character.race} name="race" onChange={handleChange} />
+
+				<Input placeholder={`level`} value={character.level} name="level" onChange={handleChange} />
+
+				<Input type="submit" />
 				<Link to={cancelPath}>
 					<button>Cancel</button>
 				</Link>
-			</form>
-		</div>
+			</Form>
+		</FormContainer>
 	);
 }
 
-export default StudentForm;
+export default CharacterForm;
