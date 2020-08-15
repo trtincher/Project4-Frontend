@@ -22,7 +22,6 @@ function DashHead({ character }) {
 	return (
 		<StyledHead>
 			<First>
-				<Nav />
 				<Avatar character={character} />
 			</First>
 			<Secound>
