@@ -3,10 +3,27 @@ import { Link } from 'react-router-dom';
 import { DataContext } from '../../App';
 import apiURL from '../../apiConfig';
 import axios from 'axios';
+import styled, { css } from 'styled-components';
 
 import Card from '../Card/Card';
 import CardContainer from '../Card/CardContainer';
 import CreateCharacter from '../CreateCharacter/CreateCharacter';
+
+const Container = styled.div`
+	background: #9b5de5;
+	height: 100vh;
+	padding: 6rem 0;
+	color: white;
+`;
+
+const CreateLink = styled(Link)`
+	text-decoration: none;
+	color: white;
+	background: none;
+	box-shadow: none;
+
+
+`;
 
 function Characters(props) {
 	const { activeUser, setActiveUser } = useContext(DataContext);
@@ -77,11 +94,14 @@ function Characters(props) {
 	));
 
 	return (
-		<div>
-			<h1>{`${userName} Select Your Character`}</h1>
+		<Container>
+			<h1>{userName}</h1>
+			<h2>Select Your Character</h2>
+			<CreateLink to="/createCharacter">
+				<h4>CREATE NEW CHARACTER</h4>
+			</CreateLink>
 			<CardContainer className="Characters">{characterMap}</CardContainer>
-			<Link to="/createCharacter">CREATE NEW CHARACTER</Link>
-		</div>
+		</Container>
 	);
 }
 
