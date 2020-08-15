@@ -3,6 +3,34 @@ import { Link } from 'react-router-dom';
 import apiURL from '../../apiConfig';
 import axios from 'axios';
 import { DataContext } from '../../App';
+import styled, { css } from 'styled-components';
+
+const UserFormContainer = styled.div`
+	width: 300px;
+	margin: 1rem auto;
+`;
+
+const Form = styled.form`
+	display: flex;
+	flex-direction: column;
+`;
+
+const FormInput = styled.input`
+	margin: .5rem 0;
+	text-size: 1rem;
+	height: 2rem;
+`;
+
+const FormButton = styled.button`
+	margin: .5rem 0;
+	background: #00bbf9;
+	padding: 0;
+`;
+
+const FormLink = styled(Link)`
+	text-decoration: none;
+	color: black;
+`;
 
 function UserForm({ type, props }) {
 	// console.log('UserForm type', type);
@@ -18,16 +46,13 @@ function UserForm({ type, props }) {
 	console.log('activeUser in UserForm', activeUser);
 	console.log('type in UserForm', type);
 
-	useEffect(
-		() => {
-			if (activeUser[0] !== undefined) {
-				setName(activeUser[0].name);
-				setEmail(activeUser[0].email);
-				setId(activeUser[0]._id);
-			}
-		},
-		[ activeUser ]
-	);
+	useEffect(() => {
+		if (activeUser[0] !== undefined) {
+			setName(activeUser[0].name);
+			setEmail(activeUser[0].email);
+			setId(activeUser[0]._id);
+		}
+	}, []);
 
 	const handleChange = (e) => {
 		console.log('field', e.target.name, e.target.value);
@@ -97,36 +122,40 @@ function UserForm({ type, props }) {
 	if (type === '/editUser') submitType = handleEditSubmit;
 
 	return (
-		<div className="UserForm">
+		<UserFormContainer>
 			<h1>{invalidEntry}</h1>
-			<form onSubmit={submitType}>
-				<input
+			<Form onSubmit={submitType}>
+				<FormInput
 					placeholder={type === '/editUser' ? name : 'name'}
 					value={user.name}
 					name="name"
 					onChange={handleChange}
 				/>
 
-				<input
+				<FormInput
 					placeholder={type === '/editUser' ? email : 'email'}
 					value={user.email}
 					name="email"
 					onChange={handleChange}
 				/>
 
-				<input
+				<FormInput
 					placeholder={type === '/editUser' ? password : 'password'}
 					value={user.password}
 					name="password"
 					onChange={handleChange}
 				/>
 
-				<button type="submit">Submit</button>
-				<Link to="/">
-					<button>Cancel</button>
-				</Link>
-			</form>
-		</div>
+				<FormButton type="submit">
+					<h3>Submit</h3>
+				</FormButton>
+				<FormButton>
+					<FormLink to="/dashboard">
+						<h3>Cancel</h3>
+					</FormLink>
+				</FormButton>
+			</Form>
+		</UserFormContainer>
 	);
 }
 
