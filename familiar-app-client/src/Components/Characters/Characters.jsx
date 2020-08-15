@@ -1,6 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { DataContext } from '../../App';
+import apiURL from '../../apiConfig';
+import axios from 'axios';
+
 import Card from '../Card/Card';
 import CardContainer from '../Card/CardContainer';
 import CreateCharacter from '../CreateCharacter/CreateCharacter';
@@ -29,6 +32,39 @@ function Characters(props) {
 		props.history.push('/dashboard');
 	};
 
+	const handleDeleteClick = async (character) => {
+		const deleteCharacter = async () => {
+			try {
+				//make character
+				const res = await axios({
+					url: `${apiURL}/characters/${character._id}`,
+					method: 'DELETE'
+				});
+
+				console.log('res in DeleteCharacter', res);
+				// push character into user characters array
+			} catch (err) {
+				console.error(err);
+			}
+		};
+
+		const getUpdatedCharacter = async () => {
+			try {
+				const user = await axios({
+					url: `${apiURL}/users/${activeUser[0]._id}`,
+					method: `GET`
+				});
+				console.log('user in DeleteCharacter', user.data);
+				setActiveUser(user.data);
+			} catch (err) {
+				console.error(err);
+			}
+		};
+
+		await deleteCharacter();
+		await getUpdatedCharacter();
+	};
+
 	const characterMap = characters.map((character) => (
 		<Card key={character.id}>
 			<h3>{character.name}</h3>
@@ -36,6 +72,7 @@ function Characters(props) {
 			<h4>{character.class}</h4>
 			<h5>{`Level: ${character.level}`}</h5>
 			<button onClick={() => handleCharacterClick(character)}>Select Character</button>
+			<button onClick={() => handleDeleteClick(character)}>Delete</button>
 		</Card>
 	));
 
