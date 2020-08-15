@@ -14,7 +14,8 @@ function Dashboard() {
 	const { activeCharacter, setActiveCharacter } = useContext(DataContext);
 	const { modifiers, setModifiers } = useContext(DataContext);
 
-	console.log('ActiveCharacter in Dashboard', activeCharacter);
+	// console.log('ActiveCharacter in Dashboard', activeCharacter);
+	console.log('setActiveCharacter in Dashboard', setActiveCharacter);
 
 	useEffect(() => {
 		setActiveCharacter({
