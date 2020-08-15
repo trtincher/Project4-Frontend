@@ -32,7 +32,7 @@ function ActionHand() {
 		() => {
 			console.log('action hand useEffect');
 
-			if (activeCharacter.actions !== undefined) {
+			if (activeCharacter.spells !== undefined && activeCharacter.spells[0] !== null) {
 				let h = makeHand();
 				setCurrentHand(h);
 			}

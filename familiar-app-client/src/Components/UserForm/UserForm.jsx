@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import apiURL from '../../apiConfig';
 import axios from 'axios';
@@ -7,12 +7,30 @@ import { DataContext } from '../../App';
 function UserForm({ type, props }) {
 	// console.log('UserForm type', type);
 	// console.log('UserForm', props);
-	const { setActiveUser } = useContext(DataContext);
+	const { activeUser, setActiveUser } = useContext(DataContext);
 	const [ user, setUser ] = useState({});
 	const [ invalidEntry, setInvalidEntry ] = useState('');
+	const [ name, setName ] = useState('');
+	const [ password, setPassword ] = useState('**********');
+	const [ email, setEmail ] = useState('');
+	const [ id, setId ] = useState('');
+
+	console.log('activeUser in UserForm', activeUser);
+	console.log('type in UserForm', type);
+
+	useEffect(
+		() => {
+			if (activeUser[0] !== undefined) {
+				setName(activeUser[0].name);
+				setEmail(activeUser[0].email);
+				setId(activeUser[0]._id);
+			}
+		},
+		[ activeUser ]
+	);
 
 	const handleChange = (e) => {
-		// console.log('field', e.target.value);
+		console.log('field', e.target.name, e.target.value);
 		setUser({
 			...user,
 			[e.target.name]: e.target.value
@@ -55,17 +73,53 @@ function UserForm({ type, props }) {
 			.catch(console.error);
 	};
 
-	let submitType = type === '/login' ? handleLoginSubmit : handleSignUpSubmit;
+	const handleEditSubmit = async (event) => {
+		event.preventDefault();
+		console.log('handleEditSubmit');
+		console.log('user', user);
+		console.log('id', id);
+		try {
+			const res = await axios({
+				url: `${apiURL}/users/${id}`,
+				method: 'PUT',
+				data: user
+			});
+			console.log('res in EditSubmit', res);
+			setActiveUser(res.data);
+			props.history.push('/dashboard');
+		} catch (err) {
+			console.error(err);
+		}
+	};
+
+	let submitType = handleLoginSubmit;
+	if (type === '/signup') submitType = handleSignUpSubmit;
+	if (type === '/editUser') submitType = handleEditSubmit;
 
 	return (
 		<div className="UserForm">
 			<h1>{invalidEntry}</h1>
 			<form onSubmit={submitType}>
-				<input placeholder={'Name'} value={user.name} name="name" onChange={handleChange} />
+				<input
+					placeholder={type === '/editUser' ? name : 'name'}
+					value={user.name}
+					name="name"
+					onChange={handleChange}
+				/>
 
-				<input placeholder={`email`} value={user.email} name="email" onChange={handleChange} />
+				<input
+					placeholder={type === '/editUser' ? email : 'email'}
+					value={user.email}
+					name="email"
+					onChange={handleChange}
+				/>
 
-				<input placeholder={`password`} value={user.password} name="password" onChange={handleChange} />
+				<input
+					placeholder={type === '/editUser' ? password : 'password'}
+					value={user.password}
+					name="password"
+					onChange={handleChange}
+				/>
 
 				<button type="submit">Submit</button>
 				<Link to="/">
