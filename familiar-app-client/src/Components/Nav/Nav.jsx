@@ -37,6 +37,7 @@ const NavLinkContainer = styled.div`
 const NavLink = styled(Link)`
 	text-decoration: none;
 	color: white;
+	margin-top: ${(props) => props.marginTop || ''}
 `;
 
 const ExitNavButton = styled.div`
@@ -62,8 +63,8 @@ function Nav() {
 				<Lines />
 			</Hamburger>
 			<NavLinkContainer open={isOpen}>
-				<NavLink to="/">
-					<h1>Home</h1>
+				<NavLink to="/dashboard" marginTop={'50px'}>
+					<h1>Dashboard</h1>
 				</NavLink>
 				<NavLink to="/characters">
 					<h1>Select Character</h1>

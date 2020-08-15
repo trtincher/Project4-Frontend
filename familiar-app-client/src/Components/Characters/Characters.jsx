@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { DataContext } from '../../App';
 import Card from '../Card/Card';
 import CardContainer from '../Card/CardContainer';
@@ -6,16 +6,26 @@ import CardContainer from '../Card/CardContainer';
 function Characters(props) {
 	const { activeUser, setActiveUser } = useContext(DataContext);
 	const { activeCharacter, setActiveCharacter } = useContext(DataContext);
+	const [ characters, setCharacters ] = useState([]);
+	const [ userName, setUserName ] = useState('');
 
 	console.log('activeUser in Characters', activeUser);
 	console.log('props in Characters', props);
+
+	useEffect(
+		() => {
+			if (activeUser[0] !== undefined) {
+				setCharacters(activeUser[0].characters);
+				setUserName(activeUser[0].name);
+			}
+		},
+		[ activeUser ]
+	);
 
 	const handleCharacterClick = (character) => {
 		setActiveCharacter(character);
 		props.history.push('/dashboard');
 	};
-
-	const characters = activeUser[0].characters;
 
 	const characterMap = characters.map((character) => (
 		<Card key={character.id}>
@@ -29,7 +39,7 @@ function Characters(props) {
 
 	return (
 		<div>
-			<h1>{`${activeUser[0].name} Select Your Character`}</h1>
+			<h1>{`${userName} Select Your Character`}</h1>
 			<CardContainer className="Characters">{characterMap}</CardContainer>
 			<button>CREATE NEW CHARACTER</button>
 		</div>
