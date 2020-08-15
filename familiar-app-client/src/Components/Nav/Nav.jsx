@@ -63,16 +63,19 @@ function Nav() {
 				<Lines />
 			</Hamburger>
 			<NavLinkContainer open={isOpen}>
-				<NavLink to="/dashboard" marginTop={'50px'}>
+				<NavLink to="/" marginTop={'50px'} onClick={openNav}>
+					<h1>Home</h1>
+				</NavLink>
+				<NavLink to="/dashboard" onClick={openNav}>
 					<h1>Dashboard</h1>
 				</NavLink>
-				<NavLink to="/characters">
+				<NavLink to="/characters" onClick={openNav}>
 					<h1>Select Character</h1>
 				</NavLink>
-				<NavLink to="/editUser">
+				<NavLink to="/editUser" onClick={openNav}>
 					<h1>Edit Account</h1>
 				</NavLink>
-				<NavLink to="/">
+				<NavLink to="/" onClick={openNav}>
 					<h1>Logout</h1>
 				</NavLink>
 				<ExitNavButton onClick={openNav}>

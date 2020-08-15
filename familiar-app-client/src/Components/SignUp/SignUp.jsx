@@ -4,7 +4,7 @@ import UserForm from '../UserForm/UserForm';
 
 function SignUp(props) {
 	let signup = props.location.pathname;
-	console.log('SignUp props', props);
+	// console.log('SignUp props', props);
 
 	return (
 		<div className="SignUp">
