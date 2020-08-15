@@ -6,20 +6,22 @@ const AvatarContainer = styled.div`
 	background: #00bbf9;
 	display: flex;
 	justify-content: flex-end;
-	flex-grow: 4;
+	flex-grow: 2;
 	border: 1px solid white;
 	border-radius: 10px;
+	padding-right: 3rem;
 `;
 
 const Lvl = styled.div`
 	display: flex;
 	justify-content: center;
+	background: white;
 	align-items: center;
-	border: 2px solid black;
 	border-radius: 50%;
 	width: 25px;
 	height: 25px;
 	font-size: 10px;
+	margin-top: .5rem;
 `;
 
 const AvatarImg = styled.img`

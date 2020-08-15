@@ -9,8 +9,13 @@ import BaseStats from './Stats/BaseStats';
 import SpellSlot from './SpellSlots/SpellSlots';
 import SecoundaryStats from './Stats/SecoundaryStats';
 import Nav from '../../Nav/Nav';
+import Conditions from './Conditions/Conditions';
+import Defences from './Defences/Defences';
 
-const First = styled.div`display: flex;`;
+const First = styled.div`
+	display: flex;
+	justify-content: flex-end;
+`;
 const Secound = styled.div`display: flex;`;
 const Third = styled.div`
 	display: flex;
@@ -23,13 +28,15 @@ function DashHead({ character }) {
 		<StyledHead>
 			<First>
 				<Avatar character={character} />
+				<BattleButton />
 			</First>
 			<Secound>
 				<BaseStats character={character} />
 			</Secound>
 			<Third>
 				<SecoundaryStats />
-				<BattleButton />
+				<Defences />
+				<Conditions />
 			</Third>
 			<Fourth>
 				<SpellSlot />
