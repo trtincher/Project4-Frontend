@@ -6,10 +6,11 @@ import { faGavel } from '@fortawesome/free-solid-svg-icons';
 
 const BtlButton = styled.div`
 	border: 1px solid white;
-	background: #00bbf9;
-	border-radius: 10px;
+	background: #mintcream;
+	border-radius: 5px 10px 5px 5px;
 	width: 70px;
 	padding: .5rem;
+	color: mintcream;
 `;
 
 const Heading = styled.h1`

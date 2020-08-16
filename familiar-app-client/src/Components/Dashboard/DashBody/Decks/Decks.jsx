@@ -10,6 +10,12 @@ import { DataContext } from '../../../../App';
 import CardContainer from '../../../Card/CardContainer';
 import Card from '../../../Card/Card';
 
+const Header = styled.h2`
+	margin-top: 2rem;
+`
+
+const Image = styled.div`margin-bottom: 2rem`
+
 const actionColor = '#FEE440';
 const spellColor = '#9b5de5';
 const equipmentColor = '#00f5d4';
@@ -31,42 +37,60 @@ function Decks() {
     
     const decks =(
         <>
-            <Card backgroundColor={actionColor} onClick={() => handleDeckClick('Actions')}>
-				<h2>Actions</h2>
-				{gavel}
+			<Card 
+				backgroundColor={actionColor} 
+				onClick={() => handleDeckClick('Actions')} 		
+				display="flex"
+				justifyContent="center"
+				alignItems="center"
+				flexDirection="column" >
+				<Header>Actions</Header>
+				<Image>{gavel}</Image>
 			</Card>
-			<Card backgroundColor={spellColor} onClick={() => handleDeckClick('Spells')}>
-				<h2>Spells</h2>
-				{book}
+			<Card backgroundColor={spellColor} onClick={() => handleDeckClick('Spells')}
+			display="flex"
+			justifyContent="center"
+			alignItems="center"
+			flexDirection="column">
+				<Header>Spells</Header>
+				<Image>{book}</Image>
 			</Card>
-			<Card backgroundColor={equipmentColor} onClick={() => handleDeckClick('Equipment')}>
-				<h2>Equipment</h2>
-				{tools}
+			<Card backgroundColor={equipmentColor} onClick={() => handleDeckClick('Equipment')}
+			display="flex"
+			justifyContent="center"
+			alignItems="center"
+			flexDirection="column">
+				<Header>Equipment</Header>
+				<Image>{tools}</Image>
 			</Card>
-			<Card backgroundColor={skillsColor} onClick={() => handleDeckClick('Skills')}>
-				<h2>Skills</h2>
-				{bookmark}
+			<Card backgroundColor={skillsColor} onClick={() => handleDeckClick('Skills')}
+			display="flex"
+			justifyContent="center"
+			alignItems="center"
+			flexDirection="column">
+				<Header>Skills</Header>
+				<Image>{bookmark}</Image>
 			</Card>
 			<Card backgroundColor={otherColor}>
-				<h2>Features & Traits</h2>
+				<Header>Features & Traits</Header>
 			</Card>
 			<Card backgroundColor={otherColor}>
-				<h2>Character Description</h2>
+				<Header>Character Description</Header>
 			</Card>
 			<Card backgroundColor={otherColor}>
-				<h2>Proficiencies & Languages</h2>
+				<Header>Proficiencies & Languages</Header>
 			</Card>
 			<Card backgroundColor={otherColor}>
-				<h2>Senses</h2>
+				<Header>Senses</Header>
 			</Card>
 			<Card backgroundColor={otherColor}>
-				<h2>Saving Throws</h2>
+				<Header>Saving Throws</Header>
 			</Card>
 			<Card backgroundColor={otherColor}>
-				<h2>Defenses</h2>
+				<Header>Defenses</Header>
 			</Card>
 			<Card backgroundColor={otherColor}>
-				<h2>Conditions</h2>
+				<Header>Conditions</Header>
 			</Card>
         </>
     )

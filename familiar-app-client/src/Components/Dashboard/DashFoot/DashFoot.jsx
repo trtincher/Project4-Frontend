@@ -12,10 +12,20 @@ const Container = styled.div`
 	padding: .5rem;
 	position: fixed;
 	bottom: 0;
+	width: 100%;
 `;
 
-const RowOne = styled.div`display: flex;`;
-const RowTwo = styled.div`display: flex;`;
+const Hp = styled.div`display: flex;`;
+
+const RowOne = styled.div`
+	display: flex;
+	width: 100%;
+`;
+const RowTwo = styled.div`
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+`;
 
 function DashFoot() {
 	const [ isPlus, setIsPlus ] = useState(false);
@@ -28,8 +38,10 @@ function DashFoot() {
 			</RowOne>
 			<RowTwo>
 				<DiceIcon />
-				<HpDisplay />
-				<HpButtons isPlus={isPlus} setIsPlus={setIsPlus} isMin={isMin} setIsMin={setIsMin} />
+				<Hp>
+					<HpDisplay />
+					<HpButtons isPlus={isPlus} setIsPlus={setIsPlus} isMin={isMin} setIsMin={setIsMin} />
+				</Hp>
 			</RowTwo>
 		</Container>
 	);

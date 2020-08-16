@@ -2,15 +2,15 @@ import React, { useState, useContext } from 'react';
 import styled, { css } from 'styled-components';
 
 const Container = styled.div`
-	background: #00bbf9;
 	display: flex;
 
 	flex-direction: column;
 	flex-grow: 2;
-	border: 1px solid white;
+	border: 1px solid mintcream;
 	border-radius: 10px;
 	text-align: center;
 	padding: .5rem;
+	color: mintcream;
 `;
 
 const Header = styled.h1`

@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 const Card = styled.div`
 	background: ${(props) => props.backgroundColor || 'gray'};
-	border: 2px solid white;
+	border: 2px solid mintcream;
 	border-radius: 10px;
+	color: ${(props) => props.color || 'black'};
 	width: ${(props) => props.width || '150px'};
 	height: ${(props) => props.height || '230px'};
 	margin: 15px auto;

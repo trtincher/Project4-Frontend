@@ -4,6 +4,8 @@ import { DataContext } from '../../App';
 import apiURL from '../../apiConfig';
 import axios from 'axios';
 import styled, { css } from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 import Card from '../Card/Card';
 import CardContainer from '../Card/CardContainer';
@@ -24,6 +26,33 @@ const CreateLink = styled(Link)`
 
 
 `;
+
+const PlayButton = styled.button`
+	background: none;
+	border: none;
+	text-align: right;
+	width: 200%;
+	padding-left: 2rem;
+	color: mintcream;
+`;
+
+const DeleteButton = styled.button`
+	background: none;
+	border: none;
+	text-align: left;
+	width: 100%;
+	padding-right: 2rem;
+	color: mintcream;
+`;
+
+const Buttons = styled.div`
+	display: flex;
+	align-items: flex-end;
+	color: mintcream;
+`;
+
+const times = <FontAwesomeIcon icon={faTimesCircle} size="2x" />;
+const check = <FontAwesomeIcon icon={faCheckCircle} size="2x" />;
 
 function Characters(props) {
 	const { activeUser, setActiveUser } = useContext(DataContext);
@@ -83,13 +112,26 @@ function Characters(props) {
 	};
 
 	const characterMap = characters.map((character) => (
-		<Card key={character.id}>
+		<Card
+			key={character.id}
+			display="flex"
+			justifyContent="space-around"
+			alignItems="center"
+			flexDirection="column"
+			color="mintcream"
+		>
 			<h3>{character.name}</h3>
 			<h5>{character.race}</h5>
 			<h4>{character.class}</h4>
 			<h5>{`Level: ${character.level}`}</h5>
-			<button onClick={() => handleCharacterClick(character)}>Select Character</button>
-			<button onClick={() => handleDeleteClick(character)}>Delete</button>
+			<Buttons>
+				<DeleteButton onClick={() => handleDeleteClick(character)}>
+					<h2>{times}</h2>
+				</DeleteButton>
+				<PlayButton onClick={() => handleCharacterClick(character)}>
+					<h2>{check}</h2>
+				</PlayButton>
+			</Buttons>
 		</Card>
 	));
 

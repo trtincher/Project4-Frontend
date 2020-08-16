@@ -3,25 +3,31 @@ import { Link, Redirect } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 const AvatarContainer = styled.div`
-	background: #00bbf9;
+	background: ;
 	display: flex;
 	justify-content: flex-end;
 	flex-grow: 2;
-	border: 1px solid white;
-	border-radius: 10px;
-	padding-right: 3rem;
+	border: 1px solid mintcream;
+	border-radius: 10px 5px 5px 5px;
+	padding-right: 1rem;
+	color: mintcream;
 `;
 
 const Lvl = styled.div`
 	display: flex;
 	justify-content: center;
-	background: white;
+	background: mintcream;
 	align-items: center;
 	border-radius: 50%;
-	width: 25px;
-	height: 25px;
-	font-size: 10px;
+	width: 30px;
+	height: 30px;
+	font-size: 1.5rem;
 	margin-top: .5rem;
+	color: steelblue;
+	font-weight: bold;
+	position: relative;
+	left: 10px;
+	z-index: 5;
 `;
 
 const AvatarImg = styled.img`
@@ -57,7 +63,9 @@ function Avatar({ character }) {
 	// console.log('avatar in Avatar', character.avatar);
 	return (
 		<AvatarContainer className="Avatar">
-			<Lvl>{`Lvl ${character.level}`}</Lvl>
+			<Lvl>
+				<h3>{character.level}</h3>
+			</Lvl>
 			<AvatarImg src={character.avatar} alt="character img" />
 			<HeadContainer>
 				<Header>{character.name}</Header>

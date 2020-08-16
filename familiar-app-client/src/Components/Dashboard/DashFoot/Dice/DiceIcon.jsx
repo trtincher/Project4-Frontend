@@ -5,10 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDiceD20 } from '@fortawesome/free-solid-svg-icons';
 
 const Icon = styled.div`
-	border: 1px solid white;
-	background: #00bbf9;
+	border: 3px solid #f0fff0;
+	background: steelblue;
 	border-radius: 10px;
-	padding: 10px;
+	padding: 14px;
+	color: #f0fff0;
 `;
 
 const icon = <FontAwesomeIcon icon={faDiceD20} size="3x" />;

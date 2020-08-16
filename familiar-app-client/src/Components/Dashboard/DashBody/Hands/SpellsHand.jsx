@@ -12,12 +12,16 @@ import Card from '../../../Card/Card';
 
 import SpellList from './SpellCRUD/SpellList';
 
-const Container = styled.div`width: 100%;`;
+const Container = styled.div`
+	width: 100%;
+	min-height: 100vh;
+`;
 
 const Header = styled.div`
 	width: 100%;
 	display: flex;
 	justify-content: center;
+	margin: 3rem 0;
 `;
 
 const Title = styled.h1`padding-left: 5rem;`;

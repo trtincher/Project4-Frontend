@@ -10,9 +10,12 @@ const HpContainer = styled.div`
 	justify-content: space-around;
 	align-items: center;
 	height: 70px;
-	border: 1px solid white;
-	background: #00bbf9;
+	border: 3px solid white;
+	background: steelblue;
 	border-radius: 10px;
+	padding: 3px;
+	margin-left: 3px;
+	color: white;
 `;
 
 const Card = styled.div`
@@ -23,6 +26,7 @@ const Card = styled.div`
 const Header = styled.h1`
 	font-size: 1rem;
 	margin: 0;
+	padding: 0 3px;
 `;
 
 const Value = styled.p`
@@ -32,7 +36,7 @@ const Value = styled.p`
 
 const Icon = styled.div``;
 
-const icon = <FontAwesomeIcon icon={faHeartbeat} size="3x" />;
+const icon = <FontAwesomeIcon icon={faHeartbeat} size="2x" />;
 
 const HpDisplay = () => {
 	const { activeCharacter, setActiveCharacter } = useContext(DataContext);

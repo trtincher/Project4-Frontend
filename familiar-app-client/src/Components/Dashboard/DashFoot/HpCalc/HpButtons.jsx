@@ -10,13 +10,17 @@ import { faHeartBroken } from '@fortawesome/free-solid-svg-icons';
 const Container = styled.div`
 	display: flex;
 	width: 100%;
+	margin-right: 25px;
 `;
 const Unit = styled.div`
 	display: flex;
-	border: 1px solid white;
-	background: #00bbf9;
+	align-items: center;
+	border: 3px solid white;
+	background: steelblue;
 	border-radius: 10px;
 	padding: 10px;
+	margin-left: 5px;
+	color: white;
 `;
 
 const PlusIcon = styled.div``;
@@ -24,10 +28,10 @@ const SolidHeartIcon = styled.div``;
 const MinusIcon = styled.div``;
 const BrokenHeartIcon = styled.div``;
 
-const plus = <FontAwesomeIcon icon={faPlus} size="3x" />;
-const minus = <FontAwesomeIcon icon={faMinus} size="3x" />;
-const solidHeart = <FontAwesomeIcon icon={faHeart} size="3x" />;
-const brokenHeart = <FontAwesomeIcon icon={faHeartBroken} size="3x" />;
+const plus = <FontAwesomeIcon icon={faPlus} size="2x" />;
+const minus = <FontAwesomeIcon icon={faMinus} size="2x" />;
+const solidHeart = <FontAwesomeIcon icon={faHeart} size="2x" />;
+const brokenHeart = <FontAwesomeIcon icon={faHeartBroken} size="2x" />;
 
 function HpButtons({ isPlus, setIsPlus, isMin, setIsMin }) {
 	const handlePlusClick = () => {
