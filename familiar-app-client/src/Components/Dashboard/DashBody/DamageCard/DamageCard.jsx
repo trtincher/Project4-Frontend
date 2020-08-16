@@ -1,6 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { DataContext } from '../../../../App';
+import axios from 'axios';
+import apiURL from '../../../../apiConfig';
 
 const DCard = styled.div`
 	display: flex;
@@ -25,7 +27,9 @@ const Button = styled.button`
 const H4 = styled.h4`margin: 1rem 0;`;
 
 function DamageCard() {
-	const { isPlayed, setIsPlayed, activeAction, setActiveAction } = useContext(DataContext);
+	const { isPlayed, setIsPlayed, activeAction, setActiveAction, activeCharacter, setActiveCharacter } = useContext(
+		DataContext
+	);
 	const [ damage, setDamage ] = useState('');
 
 	useEffect(
@@ -38,9 +42,28 @@ function DamageCard() {
 		[ activeAction ]
 	);
 
-	const handConfirmClick = () => {
+	const handConfirmClick = async () => {
 		console.log('confirm');
 		setIsPlayed(false);
+		//if spell is not a cantrip
+		if (activeAction.level !== 0) {
+			let slots = activeCharacter.spellSlots;
+			console.log('slots', slots);
+			slots[activeAction.level] -= 1;
+			console.log('slots', slots);
+
+			try {
+				const res = await axios({
+					url: `${apiURL}/characters/${activeCharacter._id}`,
+					method: 'PUT',
+					data: { spellSlots: slots }
+				});
+				console.log('res in DamageCard', res);
+				setActiveCharacter(res.data);
+			} catch (err) {
+				console.error(err);
+			}
+		}
 	};
 	const handCancelClick = () => {
 		console.log('Cancel');

@@ -17,6 +17,8 @@ function App() {
 	const [ activeUser, setActiveUser ] = useState([]);
 	const [ activeCharacter, setActiveCharacter ] = useState({});
 	const [ modifiers, setModifiers ] = useState({});
+	const [ spellSlots, setSpellSlots ] = useState([]);
+
 	// console.log('activeUser in App', activeUser);
 	// console.log('activeCharacter in App', activeCharacter);
 	// console.log('modifiers in App', modifiers);
@@ -76,7 +78,16 @@ function App() {
 		<div className="App">
 			<Switch>
 				<DataContext.Provider
-					value={{ activeUser, setActiveUser, activeCharacter, setActiveCharacter, modifiers, setModifiers }}
+					value={{
+						activeUser,
+						setActiveUser,
+						activeCharacter,
+						setActiveCharacter,
+						modifiers,
+						setModifiers,
+						spellSlots,
+						setSpellSlots
+					}}
 				>
 					<Nav />
 					<Route path="/" exact component={Landing} />
