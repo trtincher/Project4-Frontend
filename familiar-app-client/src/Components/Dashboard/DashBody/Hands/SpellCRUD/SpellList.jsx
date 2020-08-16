@@ -73,7 +73,7 @@ function SpellList() {
 		setActiveAction
 	} = useContext(DataContext);
 
-	console.log('setACtiveCharacter 1', setActiveCharacter);
+	// console.log('setACtiveCharacter 1', setActiveCharacter);
 
 	const [ currentHand, setCurrentHand ] = useState([]);
 	const [ spells, setSpells ] = useState([]);
@@ -83,12 +83,15 @@ function SpellList() {
 	// console.log('activeCharacter in Action Hand', activeCharacter);
 	// console.log('currentHand in SpellList', currentHand);
 	// console.log('allSpells in SpellList', spells);
-	console.log('spellDetails', spellDetails);
+	// console.log('spellDetails', spellDetails);
 
-	useEffect(() => {
-		console.log('action hand useEffect');
-		getSpells();
-	}, []);
+	useEffect(
+		() => {
+			// console.log('action hand useEffect');
+			getSpells();
+		},
+		[ activeCharacter ]
+	);
 
 	// const handleSpellsClick = (action) => {
 	// 	setIsPlayed(true);
@@ -113,7 +116,7 @@ function SpellList() {
 				setSpellDetails(data);
 				return data;
 			})
-			.then((data) => console.log('Details data', data))
+			// .then((data) => console.log('Details data', data))
 			.catch(console.error);
 	};
 
@@ -150,7 +153,7 @@ function SpellList() {
 	};
 
 	const makeHand = (spells) => {
-		console.log('spells in makeHand', spells);
+		// console.log('spells in makeHand', spells);
 		const curHand = spells.map((spell) => (
 			<Card
 				width="100px"
@@ -177,14 +180,14 @@ function SpellList() {
 	};
 
 	const handleSubmit = (e) => {
-		console.log('HandleSubmit');
+		// console.log('HandleSubmit');
 		e.preventDefault();
-		console.log('handle spell search submit', searchInput);
+		// console.log('handle spell search submit', searchInput);
 		spellNameFilter();
 	};
 
 	const handleSearchChange = (e) => {
-		console.log('handleSearchChange', e.target.value);
+		// console.log('handleSearchChange', e.target.value);
 		setSearchInput(e.target.value);
 	};
 

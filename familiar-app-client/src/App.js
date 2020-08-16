@@ -56,7 +56,7 @@ function App() {
 		};
 		const modObj = {};
 		for (const mod in activeCharacter.baseStats) {
-			console.log(`${mod}:${modCalc[activeCharacter.baseStats[mod]]}`);
+			// console.log(`${mod}:${modCalc[activeCharacter.baseStats[mod]]}`);
 			let field = mod;
 			let value = modCalc[activeCharacter.baseStats[mod]];
 			modObj[field] = value;

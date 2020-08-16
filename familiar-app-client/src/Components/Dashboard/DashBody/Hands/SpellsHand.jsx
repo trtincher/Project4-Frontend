@@ -30,7 +30,7 @@ const DeleteButton = styled.button`
 	background: none;
 	border: none;
 	text-align: left;
-	width: 100%;
+	margin-right: 3rem;
 `;
 
 const DescriptionBtn = styled.button`
@@ -49,10 +49,7 @@ const PlayButton = styled.button`
 	padding-left: 10px;
 `;
 
-const Buttons = styled.div`
-	display: flex;
-	align-items: flex-end;
-`;
+const Buttons = styled.div`display: flex;`;
 
 const AddSpell = styled.button`
 	background: none;
@@ -78,12 +75,12 @@ function ActionHand() {
 	} = useContext(DataContext);
 	const [ currentHand, setCurrentHand ] = useState([]);
 
-	console.log('activeCharacter in Action Hand', activeCharacter);
-	console.log('currentHand in Action', currentHand);
+	// console.log('activeCharacter in Action Hand', activeCharacter);
+	// console.log('currentHand in Action', currentHand);
 
 	useEffect(
 		() => {
-			console.log('action hand useEffect');
+			// console.log('action hand useEffect');
 
 			if (activeCharacter.spells !== undefined && activeCharacter.spells[0] !== null) {
 				let h = makeHand();
@@ -104,8 +101,15 @@ function ActionHand() {
 				alignItems="center"
 				flexDirection="column"
 			>
-				<DeleteButton onClick={() => handleDeleteClick(spell)}>{times}</DeleteButton>
+				<Buttons>
+					<DeleteButton onClick={() => handleDeleteClick(spell)}>{times}</DeleteButton>
+					<h3>{spell.level === 0 ? 'C' : spell.level}</h3>
+				</Buttons>
+
 				<h3>{spell.name}</h3>
+				<p>
+					{spell.components.map((s) => s + ' ')} {spell.ritual ? 'R' : null} {spell.conentration ? 'C' : null}
+				</p>
 				<Buttons>
 					<DescriptionBtn>{book}</DescriptionBtn>
 					<PlayButton onClick={() => handleSpellsClick(spell)}>{check}</PlayButton>
@@ -136,13 +140,13 @@ function ActionHand() {
 	const handleDeleteClick = async (spell) => {
 		let oldSpells = activeCharacter.spells;
 		let newSpells = oldSpells.filter((s) => s.index !== spell.index);
-		console.log('newSpells', newSpells);
+		// console.log('newSpells', newSpells);
 		const res = await axios({
 			url: `${apiURL}/characters/${activeCharacter._id}`,
 			method: 'PUT',
 			data: { spells: newSpells }
 		});
-		console.log('res im handleDeleteClick', res);
+		// console.log('res im handleDeleteClick', res);
 		setActiveCharacter(res.data);
 	};
 
