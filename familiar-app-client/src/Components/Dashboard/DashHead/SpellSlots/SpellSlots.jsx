@@ -84,7 +84,7 @@ const SpellSlot = () => {
 				</Slot>
 			);
 			for (let j = 1; j <= spellSlots[i]; j++) {
-				console.log('j in spellSlots', j);
+				// console.log('j in spellSlots', j);
 				slots.push(slot);
 			}
 		}

@@ -29,12 +29,12 @@ function ActionHand() {
 	const { activeCharacter, setActiveCharacter, setIsHand, isHand, hand, setHand } = useContext(DataContext);
 	const [ currentHand, setCurrentHand ] = useState([]);
 
-	console.log('activeCharacter in Action Hand', activeCharacter);
-	console.log('currentHand in Action', currentHand);
+	// console.log('activeCharacter in Action Hand', activeCharacter);
+	// console.log('currentHand in Action', currentHand);
 
 	useEffect(
 		() => {
-			console.log('action hand useEffect');
+			// console.log('action hand useEffect');
 
 			if (activeCharacter.actions !== undefined) {
 				let h = makeHand();

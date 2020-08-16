@@ -28,20 +28,20 @@ function ActionHand() {
     const [ currentHand, setCurrentHand ] = useState([]);
     const [ attacks, setAttacks] = useState([])
 
-	console.log('activeCharacter in Action Hand', activeCharacter);
-	console.log('currentHand in Action', currentHand);
+	// console.log('activeCharacter in Action Hand', activeCharacter);
+	// console.log('currentHand in Action', currentHand);
 
 	useEffect(
 		() => {
-			console.log('action hand useEffect');
+			// console.log('action hand useEffect');
 
 			if (activeCharacter.actions !== undefined) {
                 let a = nonSpellAttacks()
-                console.log('a', a)
+                // console.log('a', a)
                 setAttacks(a)
 
                 let h = makeHand();
-                console.log('h', h)
+                // console.log('h', h)
 				setCurrentHand(h);
 			}
 		},
@@ -63,11 +63,11 @@ function ActionHand() {
                }
             }
         })
-        console.log('attacks in nonSpellAttacks', attacks)
+        // console.log('attacks in nonSpellAttacks', attacks)
     }
 
 	const makeHand = () => {
-        console.log('attacks in makeHand', attacks)
+        // console.log('attacks in makeHand', attacks)
         if(attacks !== undefined)
 		{const curHand = attacks.map((item) => (
 			<Card onClick={() => handleActionClick(item)} width="100px" height="180px" backgroundColor="#FEE440">
