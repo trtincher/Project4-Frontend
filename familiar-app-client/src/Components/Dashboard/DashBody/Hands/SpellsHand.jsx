@@ -30,7 +30,7 @@ const DeleteButton = styled.button`
 	background: none;
 	border: none;
 	text-align: left;
-	margin-right: 3rem;
+	margin-right: 3.5rem;
 `;
 
 const DescriptionBtn = styled.button`
@@ -38,7 +38,7 @@ const DescriptionBtn = styled.button`
 	border: none;
 	text-align: left;
 	width: 100%;
-	padding-right: 20px;
+	padding-right: 4rem;
 `;
 
 const PlayButton = styled.button`
@@ -46,7 +46,6 @@ const PlayButton = styled.button`
 	border: none;
 	text-align: right;
 	width: 200%;
-	padding-left: 10px;
 `;
 
 const Buttons = styled.div`display: flex;`;
@@ -58,9 +57,9 @@ const AddSpell = styled.button`
 `;
 
 const plus = <FontAwesomeIcon icon={faPlusSquare} size="3x" />;
-const check = <FontAwesomeIcon icon={faCheckCircle} size="2x" />;
-const times = <FontAwesomeIcon icon={faTimesCircle} size="2x" />;
-const book = <FontAwesomeIcon icon={faBookOpen} size="2x" />;
+const check = <FontAwesomeIcon icon={faCheckCircle} size="1x" />;
+const times = <FontAwesomeIcon icon={faTimesCircle} size="1x" />;
+const book = <FontAwesomeIcon icon={faBookOpen} size="1x" />;
 
 function ActionHand() {
 	const {
@@ -120,6 +119,7 @@ function ActionHand() {
 				{/* <button onClick={() => handlePrepareClick(spell)}>Prepare</button> */}
 			</Card>
 		));
+
 		return curHand;
 	};
 
