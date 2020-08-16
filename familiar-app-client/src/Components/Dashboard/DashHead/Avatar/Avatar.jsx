@@ -41,7 +41,7 @@ const HeadContainer = styled.div`
 const SubContainer = styled.div`display: flex;`;
 
 const Header = styled.h1`
-	font-size: 1rem;
+	font-size: 1.5rem;
 	padding: 0;
 	margin: 0;
 `;

@@ -17,7 +17,7 @@ const back = <FontAwesomeIcon icon={faChevronCircleLeft} size="5x" />;
 
 const BackButton = styled.button`
 	right: 0;
-	position: absolute;
+	position: fixed;
 	background: none;
 	border: none;
 	margin: 10px;
