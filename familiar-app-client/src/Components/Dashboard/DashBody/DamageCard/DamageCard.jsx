@@ -70,12 +70,26 @@ function DamageCard() {
 		setIsPlayed(false);
 	};
 
+	const setDamageDice = () => {
+		let damageDice = '';
+		if (activeAction.components !== undefined && activeAction.level > 0) {
+			//hardcoded for 1st level spell
+			damageDice = activeAction.damage.damage_at_slot_level[1];
+		}
+		if (activeAction.components !== undefined && activeAction.level === 0) {
+			damageDice = activeAction.damage.damage_at_character_level[activeCharacter.level];
+		}
+		console.log('damageDice', damageDice);
+		return damageDice;
+	};
+
 	const setDCard = () => {
+		let damageDice = setDamageDice();
 		const dCard = (
 			<DCard>
 				<h1>Damage</h1>
 				<h3>{activeAction.name}</h3>
-				<H4>Damage Amount: {activeAction.damage.damage_dice}</H4>
+				<H4>Damage Amount: {damageDice}</H4>
 				<H4>Damage Type: {activeAction.damage.damage_type.name}</H4>
 				<Button onClick={handConfirmClick}>
 					<h2>Confirm</h2>

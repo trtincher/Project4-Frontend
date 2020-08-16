@@ -37,7 +37,6 @@ function Hands() {
 			<SpellsHand />
 			<SkillsHand />
 			<EquipmentHand />
-			{/* {isHand ? <button onClick={HandleBackClick}>Back</button> : null} */}
 		</>
 	)
 
