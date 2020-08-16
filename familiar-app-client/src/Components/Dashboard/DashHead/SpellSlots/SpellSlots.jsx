@@ -9,15 +9,15 @@ const Container = styled.div`
 	flex-grow: 1;
 	justify-content: space-between;
 	min-height: 25px;
-	border: 1px solid white;
-	background: #00bbf9;
-	border-radius: 10px;
+	border: 1px solid mintcream;
+	border-radius: 5px 5px 10px 10px;
+	color: mintcream;
 `;
 
 const SlotContainer = styled.div`display: flex;`;
 
 const Slot = styled.div`
-	border: 1px solid white;
+	border: 1px solid mintcream;
 	width: 2rem;
 	margin: 3px 5px;
 	border-radius: 10px;

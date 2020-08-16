@@ -10,10 +10,10 @@ const StatsContainer = styled.div`
 `;
 const Stat = styled.div`
 	flex-grow: 1;
-	border: 1px solid white;
-	background: #00bbf9;
-	border-radius: 10px;
+	border: 1px solid mintcream;
+	border-radius: 5px;
 	padding: .5rem;
+	color: mintcream;
 `;
 const Modifier = styled.p`
 	font-size: 1rem;

@@ -9,14 +9,19 @@ const Container = styled.div`
 	width: 100%;
 `;
 const Unit = styled.div`
-	border: 1px solid white;
-	background: #00bbf9;
+	border: 3px solid white;
+	background: steelblue;
 	border-radius: 10px;
 	padding: 10px;
-	width: 90px;
+	width: 2rem;
+	margin-right: 2rem;
 `;
 
-const InvisibleUnit = styled.div`width: 110px;`;
+const InvisibleUnit = styled.div`
+	padding: 10px;
+	width: 2rem;
+	margin-right: 2rem;
+`;
 
 function HpCalc({ isPlus, isMin }) {
 	const { activeCharacter, setActiveCharacter } = useContext(DataContext);

@@ -11,10 +11,7 @@ import Decks from './Decks/Decks';
 import Hands from './Hands/Hands';
 import DamageCard from './DamageCard/DamageCard';
 
-const Container = styled.div`
-	margin: 0;
-	height: 1000px;
-`;
+const Container = styled.div`margin: 0;`;
 
 const actionColor = '#FEE440';
 const spellColor = '#9b5de5';

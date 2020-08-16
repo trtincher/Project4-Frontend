@@ -15,7 +15,7 @@ const Hamburger = styled.div`
 `;
 
 const Lines = styled.div`
-	background: black;
+	background: mintcream;
 	height: 4px;
 	width: 40px;
 	margin: 5px auto;
@@ -23,7 +23,7 @@ const Lines = styled.div`
 `;
 
 const NavLinkContainer = styled.div`
-	background: #00f5d4;
+	background: lightslategray;
 	height: 100vh;
 	width: 50vw;
 	top: 0;
@@ -36,13 +36,13 @@ const NavLinkContainer = styled.div`
 
 const NavLink = styled(Link)`
 	text-decoration: none;
-	color: white;
+	color: mintcream;
 	margin-top: ${(props) => props.marginTop || ''}
 `;
 
 const ExitNavButton = styled.div`
-	color: white;
-	border: 1px solid white;
+	color: mintcream;
+	border: 1px solid mintcream;
 	border-radius: 10px;
 	width: 40px;
 `;

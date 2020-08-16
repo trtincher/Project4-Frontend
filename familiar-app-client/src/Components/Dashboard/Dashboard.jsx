@@ -7,7 +7,7 @@ import DashHead from './DashHead/DashHead';
 import DashBody from './DashBody/DashBody';
 import DashFoot from './DashFoot/DashFoot';
 
-const Container = styled.div``;
+const Container = styled.div`background: lightsteelblue;`;
 
 function Dashboard() {
 	const { activeUser, setActiveUser } = useContext(DataContext);

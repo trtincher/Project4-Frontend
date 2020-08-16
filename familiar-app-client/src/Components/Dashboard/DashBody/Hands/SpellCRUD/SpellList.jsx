@@ -4,6 +4,8 @@ import apiURL from '../../../../../apiConfig';
 import axios from 'axios';
 import styled, { css } from 'styled-components';
 import { DataContext } from '../../../../../App';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlusSquare, faBookOpen } from '@fortawesome/free-solid-svg-icons';
 
 import CardContainer from '../../../../Card/CardContainer';
 import Card from '../../../../Card/Card';
@@ -20,6 +22,43 @@ const DetailCard = styled.div`
 	padding: 1rem;
 	position: absolute;
 	top: 300px;
+`;
+
+const book = <FontAwesomeIcon icon={faBookOpen} size="2x" />;
+const plus = <FontAwesomeIcon icon={faPlusSquare} size="2x" />;
+
+const DescriptionBtn = styled.button`
+	background: none;
+	border: none;
+	text-align: left;
+	width: 100%;
+	padding-right: 20px;
+`;
+
+const AddButton = styled.button`
+	background: none;
+	border: none;
+	text-align: right;
+	width: 100%;
+	padding-left: 10px;
+`;
+
+const Buttons = styled.div`
+	display: flex;
+	align-items: flex-end;
+`;
+
+const Button = styled.button`
+	background: #9b5de5;
+	border: 1px solid white;
+	color: white;
+	margin: 5px;
+	border-radius: 5px;
+`;
+
+const Input = styled.input`
+	height: 2.5rem;
+	border-radius: 5px;
 `;
 
 function SpellList() {
@@ -113,10 +152,20 @@ function SpellList() {
 	const makeHand = (spells) => {
 		console.log('spells in makeHand', spells);
 		const curHand = spells.map((spell) => (
-			<Card width="100px" height="180px" backgroundColor="#9b5de5">
+			<Card
+				width="100px"
+				height="180px"
+				backgroundColor="#9b5de5"
+				display="flex"
+				justifyContent="space-around"
+				alignItems="center"
+				flexDirection="column"
+			>
 				<h3>{spell.name}</h3>
-				<button>Details</button>
-				<button onClick={() => addSpell(spell.index)}>Add</button>
+				<Buttons>
+					<DescriptionBtn>{book}</DescriptionBtn>
+					<AddButton onClick={() => addSpell(spell.index)}>{plus}</AddButton>
+				</Buttons>
 			</Card>
 		));
 		setCurrentHand(curHand);
@@ -141,18 +190,24 @@ function SpellList() {
 
 	return (
 		<Container>
-			<button onClick={() => setHand('Spells')}>Your Spells</button>
+			<Button onClick={() => setHand('Spells')}>
+				<h3>Your Spells</h3>
+			</Button>
+			<Button onClick={getSpells}>
+				<h3>All Spells</h3>
+			</Button>
 			<h1>Spell List</h1>
 			<form onSubmit={handleSubmit}>
-				<input
+				<Input
 					placeholder="search by name"
 					type="text"
 					name="name"
 					value={searchInput.name}
 					onChange={handleSearchChange}
 				/>
-				<input type="submit" />
-				<button onClick={getSpells}>All Spells</button>
+				<Button type="submit">
+					<h3>Submit</h3>
+				</Button>
 			</form>
 			<CardContainer>{currentHand[0] !== undefined ? currentHand : 'loading...'}</CardContainer>
 		</Container>

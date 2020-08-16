@@ -1,7 +1,7 @@
 .App {
 	text-align: center;
 	font-family: 'Montserrat', sans-serif;
-	background: #9b5de5;
+	background: lightsteelblue;
 }
 
 h1,
@@ -10,4 +10,5 @@ h3,
 h4,
 h5 {
 	font-family: 'Red Rose', cursive;
+	margin: 0;
 }
