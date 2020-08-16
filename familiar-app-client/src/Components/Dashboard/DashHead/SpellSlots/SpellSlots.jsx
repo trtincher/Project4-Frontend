@@ -36,8 +36,7 @@ const Icon = styled.div`
 const icon = <FontAwesomeIcon icon={faMagic} size="2x" />;
 
 const SpellSlot = () => {
-	const [ spellSlots, setSpellSlots ] = useState([]);
-	const { activeCharacter, setActiveCharacter } = useContext(DataContext);
+	const { activeCharacter, setActiveCharacter, spellSlots, setSpellSlots } = useContext(DataContext);
 
 	useEffect(
 		() => {

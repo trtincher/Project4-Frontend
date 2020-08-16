@@ -304,7 +304,7 @@ function Dashboard() {
 					equiped: true
 				}
 			],
-			_id: '5f342594481c2752d229d730',
+			_id: '5f39879c1910557b330a6f6a',
 			name: 'Thomas the Wise',
 			avatar: 'https://i.imgur.com/p7WqoA8.png',
 			gender: 'Male',

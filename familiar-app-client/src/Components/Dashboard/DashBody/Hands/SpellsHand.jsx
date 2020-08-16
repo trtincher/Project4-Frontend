@@ -71,7 +71,9 @@ function ActionHand() {
 		hand,
 		setHand,
 		setIsPlayed,
-		setActiveAction
+		setActiveAction,
+		spellSlots,
+		setSpellSlots
 	} = useContext(DataContext);
 	const [ currentHand, setCurrentHand ] = useState([]);
 
@@ -150,9 +152,9 @@ function ActionHand() {
 		setActiveCharacter(res.data);
 	};
 
-	const handleSpellsClick = (action) => {
+	const handleSpellsClick = async (spell) => {
 		setIsPlayed(true);
-		setActiveAction(action);
+		setActiveAction(spell);
 	};
 
 	const handleAddSpell = () => {
