@@ -12,7 +12,7 @@ import CardContainer from '../Card/CardContainer';
 import CreateCharacter from '../CreateCharacter/CreateCharacter';
 
 const Container = styled.div`
-	background: #9b5de5;
+	background: steelblue;
 	height: 100vh;
 	padding: 6rem 0;
 	color: white;

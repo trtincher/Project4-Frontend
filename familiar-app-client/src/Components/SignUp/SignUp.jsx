@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import UserForm from '../UserForm/UserForm';
 
 const Container = styled.div`
-	background: #9b5de5;
+	background: steelblue;
 	height: 100vh;
 	padding-top: 8rem;
 	color: white;
