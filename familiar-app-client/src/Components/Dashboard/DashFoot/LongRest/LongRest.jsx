@@ -42,12 +42,20 @@ function LongRest() {
 		let slots = activeCharacter.spellSlots;
 		slots[1] = 2;
 		//update DB with new slots
+		let currentHp = activeCharacter.hp.max;
 
 		try {
 			const res = await axios({
 				url: `${apiURL}/characters/${activeCharacter._id}`,
 				method: 'PUT',
-				data: { spellSlots: slots }
+				data: {
+					spellSlots: slots,
+					hp: {
+						current: currentHp,
+						max: activeCharacter.hp.max,
+						temp: activeCharacter.hp.temp
+					}
+				}
 			});
 			console.log('res in DamageCard', res);
 			//setActiveCharacter to res.data
