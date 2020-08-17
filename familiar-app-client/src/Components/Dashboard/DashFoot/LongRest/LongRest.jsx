@@ -6,12 +6,13 @@ import { faGavel } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import apiURL from '../../../../apiConfig';
 
-const BtlButton = styled.div`
-	border: 3px solid mintcream;
+const RestContainer = styled.div`
+	display: flex;
+
 	background: steelblue;
 	border-radius: 10px;
-	width: 70px;
-	padding: .5rem;
+	width: 100%;
+	padding: 0;
 	color: mintcream;
 `;
 
@@ -26,6 +27,7 @@ const Button = styled.button`
 	border: 1px solid mintcream;
 	color: mintcream;
 	border-radius: 5px;
+	margin: 0 5px;
 `;
 
 const icon = <FontAwesomeIcon icon={faGavel} size="2x" />;
@@ -56,15 +58,15 @@ function LongRest() {
 	};
 
 	return (
-		<BtlButton>
+		<RestContainer>
 			<Heading>Rest</Heading>
 			<Button onClick={handleLongRest}>
-				<p>Long</p>
+				<Heading>Long</Heading>
 			</Button>
 			<Button>
-				<p>Short</p>
+				<Heading>Short</Heading>
 			</Button>
-		</BtlButton>
+		</RestContainer>
 	);
 }
 

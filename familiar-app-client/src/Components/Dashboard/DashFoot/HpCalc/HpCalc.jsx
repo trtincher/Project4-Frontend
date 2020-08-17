@@ -2,6 +2,8 @@ import React, { useState, useContext, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import { DataContext } from '../../../../App';
+import apiURL from '../../../../apiConfig';
+import axios from 'axios';
 
 const Container = styled.div`
 	display: flex;
@@ -15,12 +17,22 @@ const Unit = styled.div`
 	padding: 10px;
 	width: 2rem;
 	margin-right: 2rem;
+	color: white;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
 `;
 
 const InvisibleUnit = styled.div`
 	padding: 10px;
 	width: 2rem;
 	margin-right: 2rem;
+`;
+
+const Value = styled.h3`
+	font-size: 1rem;
+	display: flex;
+	margin: .5rem auto;
 `;
 
 function HpCalc({ isPlus, isMin }) {
@@ -60,10 +72,51 @@ function HpCalc({ isPlus, isMin }) {
 		return maxMap;
 	};
 
+	const handleMinClick = async (num) => {
+		// console.log('minclick');
+		// console.log('activeCharacter.hp.current in handleMin', activeCharacter.hp.current);
+		// console.log('num in handleMin', num);
+		let newCurrentHp = parseInt(activeCharacter.hp.current) - parseInt(num);
+		// console.log('newCurrentHp', newCurrentHp);
+		let hpObj = {
+			hp: {
+				current: newCurrentHp,
+				max: activeCharacter.hp.max,
+				temp: activeCharacter.hp.temp
+			}
+		};
+
+		try {
+			let res = await axios({
+				url: `${apiURL}/characters/${activeCharacter._id}`,
+				method: 'PUT',
+				data: hpObj
+			});
+
+			console.log('res in handleMin', res);
+			setActiveCharacter(res.data);
+		} catch (err) {
+			console.error(err);
+		}
+	};
+
+	const minValues = currentRange.map((number) => {
+		console.log('number in minValues', number.props.children);
+		// console.log('currentRange', currentRange);
+
+		return <Value onClick={() => handleMinClick(number.props.children)}>-{number}</Value>;
+	});
+
 	return (
 		<Container>
-			{isPlus ? <Unit>{maxRange}</Unit> : <InvisibleUnit />}
-			{isMin ? <Unit>{currentRange}</Unit> : <InvisibleUnit />}
+			{isPlus ? (
+				<Unit>
+					<Value>{maxRange}</Value>
+				</Unit>
+			) : (
+				<InvisibleUnit />
+			)}
+			{isMin ? <Unit>{minValues}</Unit> : <InvisibleUnit />}
 		</Container>
 	);
 }
