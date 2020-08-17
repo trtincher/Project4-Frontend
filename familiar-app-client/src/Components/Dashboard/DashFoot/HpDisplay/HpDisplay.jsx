@@ -4,8 +4,11 @@ import { DataContext } from '../../../../App';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeartbeat } from '@fortawesome/free-solid-svg-icons';
 
+import LongRest from '../LongRest/LongRest';
+
 const HpContainer = styled.div`
 	display: flex;
+	flex-direction: column;
 	flex-grow: 3;
 	justify-content: space-around;
 	align-items: center;
@@ -13,10 +16,12 @@ const HpContainer = styled.div`
 	border: 3px solid white;
 	background: steelblue;
 	border-radius: 10px;
-	padding: 3px;
+	padding: 5px;
 	margin-left: 3px;
 	color: white;
 `;
+
+const SubContainer = styled.div`display: flex;`;
 
 const Card = styled.div`
 	display: flex;
@@ -29,7 +34,7 @@ const Header = styled.h1`
 	padding: 0 3px;
 `;
 
-const Value = styled.p`
+const Value = styled.h3`
 	font-size: 1rem;
 	margin: 0;
 `;
@@ -57,19 +62,24 @@ const HpDisplay = () => {
 
 	return (
 		<HpContainer>
-			{icon}
-			<Card>
-				<Header>Current</Header>
-				<Value>{current}</Value>
-			</Card>
-			<Card>
-				<Header>Max</Header>
-				<Value>{max}</Value>
-			</Card>
-			<Card>
-				<Header>Temp</Header>
-				<Value>{temp}</Value>
-			</Card>
+			<SubContainer>
+				{icon}
+				<Card>
+					<Header>Current</Header>
+					<Value>{current}</Value>
+				</Card>
+				<Card>
+					<Header>Max</Header>
+					<Value>{max}</Value>
+				</Card>
+				<Card>
+					<Header>Temp</Header>
+					<Value>{temp}</Value>
+				</Card>
+			</SubContainer>
+			<SubContainer>
+				<LongRest />
+			</SubContainer>
 		</HpContainer>
 	);
 };

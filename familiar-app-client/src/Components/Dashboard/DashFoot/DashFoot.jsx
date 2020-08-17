@@ -6,7 +6,6 @@ import DiceIcon from './Dice/DiceIcon';
 import HpButtons from './HpCalc/HpButtons';
 import HpDisplay from './HpDisplay/HpDisplay';
 import HpCalc from './HpCalc/HpCalc';
-import LongRest from './LongRest/LongRest';
 
 const Container = styled.div`
 	justify-content: space-around;
@@ -39,7 +38,7 @@ function DashFoot() {
 			</RowOne>
 			<RowTwo>
 				<DiceIcon />
-				<LongRest />
+
 				<Hp>
 					<HpDisplay />
 					<HpButtons isPlus={isPlus} setIsPlus={setIsPlus} isMin={isMin} setIsMin={setIsMin} />
