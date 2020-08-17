@@ -24,19 +24,19 @@ const Button = styled.button`
 	background: none;
 `;
 
-const H4 = styled.h4`margin: 1rem 0;`;
+const H4 = styled.h4``;
 
-function DamageCard() {
+function DamageCard({ profBonus, mod }) {
 	const { isPlayed, setIsPlayed, activeAction, setActiveAction, activeCharacter, setActiveCharacter } = useContext(
 		DataContext
 	);
-	const [ damage, setDamage ] = useState('');
+	const [ damageCard, setDamageCard ] = useState('');
 
 	useEffect(
 		() => {
 			if (activeAction.damage !== undefined) {
 				let d = setDCard();
-				setDamage(d);
+				setDamageCard(d);
 			}
 		},
 		[ activeAction ]
@@ -83,14 +83,43 @@ function DamageCard() {
 		return damageDice;
 	};
 
+	const rollDamage = () => {
+		let damage = [];
+		//setDamageDice gives me the dice to roll
+		let dice = setDamageDice();
+		//Produce a random number from the range given by dice
+		let diceArr = dice.split('');
+		let diceAmount = diceArr[0];
+		let diceType = diceArr[2];
+
+		//loop for amount of dice
+		for (let i = 1; i <= diceAmount; i++) {
+			//roll dice type
+			let roll = Math.floor(Math.random() * (diceType - 1) + 1);
+			console.log('roll', roll);
+			damage.push(roll);
+		}
+
+		//Add modifiers proficiency bonus + intelligence modifier
+
+		return damage;
+	};
+
 	const setDCard = () => {
 		let damageDice = setDamageDice();
+		let damageRoll = rollDamage();
+		console.log('damagRoll', damageRoll);
+
+		let rollSum = damageRoll.reduce((a, c) => a + c, 0);
+		let damageSum = parseInt(rollSum) + parseInt(profBonus) + parseInt(mod.intelligence);
 		const dCard = (
 			<DCard>
 				<h1>Damage</h1>
 				<h3>{activeAction.name}</h3>
-				<H4>Damage Amount: {damageDice}</H4>
-				<H4>Damage Type: {activeAction.damage.damage_type.name}</H4>
+				<p>{`${damageDice} : ${damageRoll} +${profBonus}+${mod.intelligence}=`}</p>
+				<h1>
+					{damageSum} {activeAction.damage.damage_type.name}
+				</h1>
 				<Button onClick={handConfirmClick}>
 					<h2>Confirm</h2>
 				</Button>
@@ -102,7 +131,7 @@ function DamageCard() {
 		return dCard;
 	};
 
-	return <div>{isPlayed ? damage : null}</div>;
+	return <div>{isPlayed ? damageCard : null}</div>;
 }
 
 export default DamageCard;

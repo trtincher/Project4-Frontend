@@ -92,6 +92,7 @@ function ActionHand() {
 	);
 
 	const makeHand = () => {
+		//sort activeCharacter.spells
 		const curHand = activeCharacter.spells.map((spell) => (
 			<Card
 				width="100px"

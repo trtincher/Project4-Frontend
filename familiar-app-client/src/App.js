@@ -18,10 +18,13 @@ function App() {
 	const [ activeCharacter, setActiveCharacter ] = useState({});
 	const [ modifiers, setModifiers ] = useState({});
 	const [ spellSlots, setSpellSlots ] = useState([]);
+	const [ prof, setProf ] = useState(0);
+	const [ isDice, setIsDice ] = useState(false);
 
 	// console.log('activeUser in App', activeUser);
 	// console.log('activeCharacter in App', activeCharacter);
-	// console.log('modifiers in App', modifiers);
+	console.log('modifiers in App', modifiers);
+	console.log('prof in App', prof);
 
 	const mods = () => {
 		const modCalc = {
@@ -86,7 +89,11 @@ function App() {
 						modifiers,
 						setModifiers,
 						spellSlots,
-						setSpellSlots
+						setSpellSlots,
+						prof,
+						setProf,
+						isDice,
+						setIsDice
 					}}
 				>
 					<Nav />

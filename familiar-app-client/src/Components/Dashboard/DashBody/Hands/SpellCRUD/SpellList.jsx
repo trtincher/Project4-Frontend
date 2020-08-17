@@ -10,7 +10,10 @@ import { faPlusSquare, faBookOpen } from '@fortawesome/free-solid-svg-icons';
 import CardContainer from '../../../../Card/CardContainer';
 import Card from '../../../../Card/Card';
 
-const Container = styled.div`text-align: center;`;
+const Container = styled.div`
+width: 100%
+text-align: center;
+`;
 
 const DetailCard = styled.div`
 	background: red;
