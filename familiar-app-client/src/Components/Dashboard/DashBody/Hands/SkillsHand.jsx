@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import apiURL from '../../../../apiConfig';
 import axios from 'axios';
@@ -27,31 +27,50 @@ const Container = styled.div`
 `;
 
 function SkillsHand() {
-    const { activeCharacter, setActiveCharacter, setIsHand, isHand, hand, setHand } = useContext(DataContext);
+	const { activeCharacter, setActiveCharacter, setIsHand, isHand, hand, setHand } = useContext(DataContext);
+	const [ saveProfs, setSaveProfs ] = useState([]);
 
-    
-    const HandleBackClick = ()=>{
-        setIsHand(false)
-        setHand('')
-    }
+	useEffect(
+		() => {
+			if (activeCharacter.proficiencies !== undefined) {
+				setSaveProfs(activeCharacter.proficiencies.save_prof);
+			}
+		},
+		[ activeCharacter ]
+	);
 
-    const currentHand = (
-        <>
-            <Card>Skills</Card>
-            <Card>Skills</Card>
-            <Card>Skills</Card>
-            <Card>Skills</Card>
-            <Card>Skills</Card>
-            <Card>Skills</Card>
-            <Card>Skills</Card>
-        </>
-    )
+	const HandleBackClick = () => {
+		setIsHand(false);
+		setHand('');
+	};
+
+	const skills = [
+		[ 'Acrobatics', 'dexterity' ],
+		[ 'Animal Handling', 'wisdom' ],
+		[ 'Arcana', 'intelligence' ],
+		[ 'Athletics', 'strength' ],
+		[ 'Deception', 'charisma' ],
+		[ 'History', 'intelligence' ],
+		[ 'Insight', 'wisdom' ],
+		[ 'Intimidation', 'charisma' ],
+		[ 'Investigation', 'intelligence' ],
+		[ 'Medicine', 'wisdom' ],
+		[ 'Nature', 'intelligence' ],
+		[ 'Perception', 'wisdom' ],
+		[ 'Persuasion', 'charisma' ],
+		[ 'Religion', 'intelligence' ],
+		[ 'Sleight of Hand', 'dexterity' ],
+		[ 'Stealth', 'dexterity' ],
+		[ 'Survival', 'wisdom' ]
+	];
+
+	const currentHand = skills.map(() => {});
 
 	return (
-        <Container>
-            <CardContainer>{isHand && hand==='Skills'? currentHand: null}</CardContainer> 
-        </Container>
-    )
+		<Container>
+			<CardContainer>{isHand && hand === 'Skills' ? currentHand : null}</CardContainer>
+		</Container>
+	);
 }
 
 export default SkillsHand;
