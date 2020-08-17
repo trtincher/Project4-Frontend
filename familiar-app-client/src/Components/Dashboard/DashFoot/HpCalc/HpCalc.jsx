@@ -38,15 +38,16 @@ const Value = styled.h3`
 function HpCalc({ isPlus, isMin }) {
 	const { activeCharacter, setActiveCharacter } = useContext(DataContext);
 	const [ currentRange, setCurrentRange ] = useState([]);
-	const [ maxRange, setMaxRange ] = useState([]);
+	const [ addRange, setAddRange ] = useState([]);
 
 	useEffect(
 		() => {
 			if (activeCharacter.hp !== undefined) {
 				let curr = calcCurrRange();
-				let max = calcMaxRange();
+				let add = calcAddRange();
+
 				setCurrentRange(curr);
-				setMaxRange(max);
+				setAddRange(add);
 			}
 		},
 		[ activeCharacter ]
@@ -58,18 +59,18 @@ function HpCalc({ isPlus, isMin }) {
 		for (let i = 1; i <= currentHp; i++) {
 			curr.push(i);
 		}
-		const currMap = curr.map((n) => <p>{n}</p>);
-		return currMap;
+
+		return curr;
 	};
 
-	const calcMaxRange = () => {
-		const maxHp = activeCharacter.hp.max + activeCharacter.hp.temp;
+	const calcAddRange = () => {
+		const addDiff = activeCharacter.hp.max - activeCharacter.hp.current;
 		const max = [];
-		for (let i = 1; i <= maxHp; i++) {
+		for (let i = 1; i <= addDiff; i++) {
 			max.push(i);
 		}
-		const maxMap = max.map((n) => <p>{n}</p>);
-		return maxMap;
+
+		return max;
 	};
 
 	const handleMinClick = async (num) => {
@@ -100,22 +101,45 @@ function HpCalc({ isPlus, isMin }) {
 		}
 	};
 
-	const minValues = currentRange.map((number) => {
-		console.log('number in minValues', number.props.children);
-		// console.log('currentRange', currentRange);
+	const handleAddClick = async (num) => {
+		// console.log('minclick');
+		// console.log('activeCharacter.hp.current in handleMin', activeCharacter.hp.current);
+		// console.log('num in handleMin', num);
+		let newCurrentHp = parseInt(activeCharacter.hp.current) + parseInt(num);
+		// console.log('newCurrentHp', newCurrentHp);
+		let hpObj = {
+			hp: {
+				current: newCurrentHp,
+				max: activeCharacter.hp.max,
+				temp: activeCharacter.hp.temp
+			}
+		};
 
-		return <Value onClick={() => handleMinClick(number.props.children)}>-{number}</Value>;
+		try {
+			let res = await axios({
+				url: `${apiURL}/characters/${activeCharacter._id}`,
+				method: 'PUT',
+				data: hpObj
+			});
+
+			console.log('res in handleMin', res);
+			setActiveCharacter(res.data);
+		} catch (err) {
+			console.error(err);
+		}
+	};
+
+	const minValues = currentRange.map((number) => {
+		return <Value onClick={() => handleMinClick(number)}>-{number}</Value>;
+	});
+
+	const addValues = addRange.map((number) => {
+		return <Value onClick={() => handleAddClick(number)}>+{number}</Value>;
 	});
 
 	return (
 		<Container>
-			{isPlus ? (
-				<Unit>
-					<Value>{maxRange}</Value>
-				</Unit>
-			) : (
-				<InvisibleUnit />
-			)}
+			{isPlus ? <Unit>{addValues}</Unit> : <InvisibleUnit />}
 			{isMin ? <Unit>{minValues}</Unit> : <InvisibleUnit />}
 		</Container>
 	);
