@@ -10,6 +10,7 @@ import { DataContext } from '../../../App';
 import Decks from './Decks/Decks';
 import Hands from './Hands/Hands';
 import DamageCard from './DamageCard/DamageCard';
+import BattleMode from '../DashHead/Battle/BattleMode';
 
 const Container = styled.div`margin: 0;`;
 
@@ -61,6 +62,7 @@ function DashBody() {
 					setActiveAction
 				}}
 			>
+				<BattleMode />
 				<Decks />
 				<Hands />
 				<DamageCard profBonus={profBonus} mod={mod} />
