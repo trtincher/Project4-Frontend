@@ -3,7 +3,8 @@ import styled from 'styled-components';
 const CardContainer = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	width: 100%;
+	width: 95vw;
+	margin: auto;
 	text-align: center;
 `;
 

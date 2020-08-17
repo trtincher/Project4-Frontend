@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import apiURL from '../../../apiConfig';
 import axios from 'axios';
@@ -25,11 +25,25 @@ const book = <FontAwesomeIcon icon={faBook} size="6x" />;
 const tools = <FontAwesomeIcon icon={faTools} size="6x" />;
 
 function DashBody() {
-	const { activeCharacter, setActiveCharacter } = useContext(DataContext);
+	const { activeCharacter, setActiveCharacter, modifiers, prof } = useContext(DataContext);
 	const [ isHand, setIsHand ] = useState('');
 	const [ hand, setHand ] = useState('');
 	const [ isPlayed, setIsPlayed ] = useState(false);
 	const [ activeAction, setActiveAction ] = useState({});
+	const [ mod, setMod ] = useState({});
+	const [ profBonus, setProfBonus ] = useState({});
+
+	useEffect(
+		() => {
+			if (modifiers !== undefined) {
+				setMod(modifiers);
+			}
+			if (prof !== undefined) {
+				setProfBonus(prof);
+			}
+		},
+		[ modifiers, prof ]
+	);
 
 	return (
 		<Container>
@@ -49,7 +63,7 @@ function DashBody() {
 			>
 				<Decks />
 				<Hands />
-				<DamageCard />
+				<DamageCard profBonus={profBonus} mod={mod} />
 			</DataContext.Provider>
 		</Container>
 	);
