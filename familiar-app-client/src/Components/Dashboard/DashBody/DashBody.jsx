@@ -10,7 +10,6 @@ import { DataContext } from '../../../App';
 import Decks from './Decks/Decks';
 import Hands from './Hands/Hands';
 import DamageCard from './DamageCard/DamageCard';
-import BattleMode from '../DashHead/Battle/BattleMode';
 
 const Container = styled.div`margin: 0;`;
 
@@ -26,11 +25,18 @@ const book = <FontAwesomeIcon icon={faBook} size="6x" />;
 const tools = <FontAwesomeIcon icon={faTools} size="6x" />;
 
 function DashBody() {
-	const { activeCharacter, setActiveCharacter, modifiers, prof } = useContext(DataContext);
+	const {
+		activeCharacter,
+		setActiveCharacter,
+		modifiers,
+		prof,
+		isBattle,
+		activeAction,
+		setActiveAction
+	} = useContext(DataContext);
 	const [ isHand, setIsHand ] = useState('');
 	const [ hand, setHand ] = useState('');
 	const [ isPlayed, setIsPlayed ] = useState(false);
-	const [ activeAction, setActiveAction ] = useState({});
 	const [ mod, setMod ] = useState({});
 	const [ profBonus, setProfBonus ] = useState({});
 
@@ -59,10 +65,10 @@ function DashBody() {
 					isPlayed,
 					setIsPlayed,
 					activeAction,
-					setActiveAction
+					setActiveAction,
+					isBattle
 				}}
 			>
-				<BattleMode />
 				<Decks />
 				<Hands />
 				<DamageCard profBonus={profBonus} mod={mod} />

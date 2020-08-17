@@ -1,5 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import styled, { css } from 'styled-components';
+import { DataContext } from '../../../../App';
+
 
 const Container = styled.div`
 	border-radius: 5px;
@@ -32,26 +34,46 @@ const Value = styled.h1`
 	border-radius: 5px;
 `;
 
+
+
 function BattleMode() {
+    const { isBattle, activeAction } = useContext(DataContext);
+    console.log('isBattle', isBattle)
+    const [ actionValue, setActionValue ] = useState(1)
+
+    useEffect(()=>{
+        if(activeAction.name !== undefined && actionValue !== 0){
+                let newValue = actionValue -1
+                setActionValue(newValue)
+        }
+    }, [activeAction])
+
+    
+    const battle = (
+        <>
+            <Unit>
+                <Heading>Actions</Heading>
+                <Value>{actionValue}</Value>
+            </Unit>
+            <Unit>
+                <Heading>Bonus Actions</Heading>
+                <Value>1</Value>
+            </Unit>
+            <Unit>
+                <Heading>Reactions</Heading>
+                <Value>1</Value>
+            </Unit>
+            <Unit>
+                <Heading onClick={()=> setActionValue(1)}>Next Round</Heading>
+            </Unit>
+        </>
+    )
+
 	return (
-		<Container>
-			<Unit>
-				<Heading>Actions</Heading>
-				<Value>1</Value>
-			</Unit>
-			<Unit>
-				<Heading>Bonus Actions</Heading>
-				<Value>1</Value>
-			</Unit>
-			<Unit>
-				<Heading>Reactions</Heading>
-				<Value>1</Value>
-			</Unit>
-			<Unit>
-				<Heading>Next Round</Heading>
-			</Unit>
-		</Container>
-	);
+        <Container>
+        {isBattle? battle: null}
+        </Container>
+	)
 }
 
 export default BattleMode;
