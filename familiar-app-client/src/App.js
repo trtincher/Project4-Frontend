@@ -19,6 +19,7 @@ function App() {
 	const [ modifiers, setModifiers ] = useState({});
 	const [ spellSlots, setSpellSlots ] = useState([]);
 	const [ prof, setProf ] = useState(0);
+	const [ isDice, setIsDice ] = useState(false);
 
 	// console.log('activeUser in App', activeUser);
 	// console.log('activeCharacter in App', activeCharacter);
@@ -90,7 +91,9 @@ function App() {
 						spellSlots,
 						setSpellSlots,
 						prof,
-						setProf
+						setProf,
+						isDice,
+						setIsDice
 					}}
 				>
 					<Nav />

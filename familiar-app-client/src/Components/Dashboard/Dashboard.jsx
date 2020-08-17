@@ -6,13 +6,21 @@ import styled, { css } from 'styled-components';
 import DashHead from './DashHead/DashHead';
 import DashBody from './DashBody/DashBody';
 import DashFoot from './DashFoot/DashFoot';
+import Dice from './Dice';
 
 const Container = styled.div`background: lightsteelblue;`;
 
 function Dashboard() {
-	const { activeUser, setActiveUser } = useContext(DataContext);
-	const { activeCharacter, setActiveCharacter } = useContext(DataContext);
-	const { modifiers, setModifiers } = useContext(DataContext);
+	const {
+		activeUser,
+		setActiveUser,
+		modifiers,
+		setModifiers,
+		isDice,
+		setIsDice,
+		activeCharacter,
+		setActiveCharacter
+	} = useContext(DataContext);
 
 	// console.log('ActiveCharacter in Dashboard', activeCharacter);
 	// console.log('setActiveCharacter in Dashboard', setActiveCharacter);
@@ -375,6 +383,7 @@ function Dashboard() {
 			<DashHead character={activeCharacter} />
 			<DashBody character={activeCharacter} />
 			<DashFoot character={activeCharacter} />
+			<Dice isDice={isDice} />
 		</Container>
 	);
 }
