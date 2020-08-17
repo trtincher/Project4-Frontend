@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import ReactDOM from 'react-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGavel } from '@fortawesome/free-solid-svg-icons';
+import { DataContext } from '../../../../App';
 
 const BtlButton = styled.div`
 	border: 1px solid white;
@@ -23,9 +24,11 @@ const Icon = styled.div``;
 
 const icon = <FontAwesomeIcon icon={faGavel} size="2x" />;
 
-function BattleButton({ character }) {
+function BattleButton() {
+	const { isBattle, setIsBattle } = useContext(DataContext);
+
 	return (
-		<BtlButton>
+		<BtlButton onClick={() => setIsBattle(!isBattle)}>
 			<Heading>Battle</Heading>
 			<Icon>{icon}</Icon>
 		</BtlButton>

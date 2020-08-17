@@ -11,6 +11,7 @@ import SecoundaryStats from './Stats/SecoundaryStats';
 import Nav from '../../Nav/Nav';
 import Conditions from './Conditions/Conditions';
 import Defences from './Defences/Defences';
+import BattleMode from './Battle/BattleMode';
 
 const First = styled.div`
 	display: flex;
@@ -41,6 +42,7 @@ function DashHead({ character }) {
 			<Fourth>
 				<SpellSlot />
 			</Fourth>
+			<BattleMode />
 		</StyledHead>
 	);
 }
