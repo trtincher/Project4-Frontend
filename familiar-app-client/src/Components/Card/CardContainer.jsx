@@ -4,7 +4,7 @@ const CardContainer = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	width: 95vw;
-	margin: auto;
+	margin: 0 auto;
 	text-align: center;
 `;
 

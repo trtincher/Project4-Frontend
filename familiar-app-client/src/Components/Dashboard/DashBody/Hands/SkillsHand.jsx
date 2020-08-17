@@ -21,6 +21,11 @@ const bookmark = <FontAwesomeIcon icon={faBookmark} size="6x" />;
 const book = <FontAwesomeIcon icon={faBook} size="6x" />;
 const tools = <FontAwesomeIcon icon={faTools} size="6x" />;
 
+const Container = styled.div`
+	width: 100%;
+	min-height: 100vh;
+`;
+
 function SkillsHand() {
     const { activeCharacter, setActiveCharacter, setIsHand, isHand, hand, setHand } = useContext(DataContext);
 
@@ -42,9 +47,11 @@ function SkillsHand() {
         </>
     )
 
-	return <CardContainer>
-    {isHand && hand==='Skills'? currentHand: null}
-</CardContainer>
+	return (
+        <Container>
+            <CardContainer>{isHand && hand==='Skills'? currentHand: null}</CardContainer> 
+        </Container>
+    )
 }
 
 export default SkillsHand;
