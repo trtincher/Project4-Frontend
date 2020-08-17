@@ -19,15 +19,18 @@ const FormInput = styled.input`
 	margin: .5rem 0;
 	text-size: 1rem;
 	height: 2rem;
+	border: none;
+	border-radius: 5px;
 `;
 
 const FormButton = styled.button`
-	margin: 0;
+	margin: 1rem 0;
 	padding: 0;
 	color: white;
 	font-size: 1.5rem;
-	background: none;
+	background: lightsteelblue;
 	border: none;
+	border-radius: 5px;
 `;
 
 const FormLink = styled(Link)`
