@@ -10,19 +10,9 @@ import { DataContext } from '../../../App';
 import Decks from './Decks/Decks';
 import Hands from './Hands/Hands';
 import DamageCard from './DamageCard/DamageCard';
+import DescriptionCard from './DescriptionCard';
 
 const Container = styled.div`margin: 0;`;
-
-const actionColor = '#FEE440';
-const spellColor = '#9b5de5';
-const equipmentColor = '#00f5d4';
-const skillsColor = '#f15bb5';
-const otherColor = '#00bbf9';
-
-const gavel = <FontAwesomeIcon icon={faGavel} size="6x" />;
-const bookmark = <FontAwesomeIcon icon={faBookmark} size="6x" />;
-const book = <FontAwesomeIcon icon={faBook} size="6x" />;
-const tools = <FontAwesomeIcon icon={faTools} size="6x" />;
 
 function DashBody() {
 	const {
@@ -39,6 +29,7 @@ function DashBody() {
 	const [ isPlayed, setIsPlayed ] = useState(false);
 	const [ mod, setMod ] = useState({});
 	const [ profBonus, setProfBonus ] = useState({});
+	const [ isDescription, setIsDescription ] = useState({});
 
 	useEffect(
 		() => {
@@ -67,12 +58,15 @@ function DashBody() {
 					activeAction,
 					setActiveAction,
 					isBattle,
-					prof
+					prof,
+					isDescription,
+					setIsDescription
 				}}
 			>
 				<Decks />
 				<Hands />
 				<DamageCard profBonus={profBonus} mod={mod} />
+				<DescriptionCard />
 			</DataContext.Provider>
 		</Container>
 	);

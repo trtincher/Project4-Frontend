@@ -7,7 +7,7 @@ import { DataContext } from '../../../../App';
 
 const BtlButton = styled.div`
 	border: 1px solid white;
-	background: #mintcream;
+	background: steelblue;
 	border-radius: 5px 10px 5px 5px;
 	width: 70px;
 	padding: .5rem;

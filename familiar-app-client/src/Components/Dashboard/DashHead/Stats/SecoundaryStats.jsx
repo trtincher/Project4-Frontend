@@ -12,6 +12,7 @@ const Stat = styled.div`
 	border-radius: 5px;
 	padding: .5rem;
 	color: mintcream;
+	background: steelblue;
 `;
 const Modifier = styled.p`
 	font-size: 1rem;

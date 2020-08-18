@@ -10,6 +10,7 @@ const Container = styled.div`
 	text-align: center;
 	padding: .5rem;
 	color: mintcream;
+	background: steelblue;
 `;
 
 const Header = styled.h1`

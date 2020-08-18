@@ -16,11 +16,11 @@ const Header = styled.h2`
 
 const Image = styled.div`margin-bottom: 2rem`
 
-const actionColor = '#FEE440';
-const spellColor = '#9b5de5';
-const equipmentColor = '#00f5d4';
-const skillsColor = '#f15bb5';
-const otherColor = '#00bbf9';
+const actionColor = '#ffc857';
+const spellColor = '#dbbbf5';
+const equipmentColor = '#40f99b';
+const skillsColor = '#f58a07';
+const otherColor = '#55d6be';
 
 const gavel = <FontAwesomeIcon icon={faGavel} size="6x" />;
 const bookmark = <FontAwesomeIcon icon={faBookmark} size="6x" />;

@@ -52,7 +52,7 @@ const Buttons = styled.div`
 `;
 
 const Button = styled.button`
-	background: #9b5de5;
+	background: #dbbbf5;
 	border: 1px solid white;
 	color: white;
 	margin: 5px;
@@ -161,7 +161,7 @@ function SpellList() {
 			<Card
 				width="100px"
 				height="180px"
-				backgroundColor="#9b5de5"
+				backgroundColor="#dbbbf5"
 				display="flex"
 				justifyContent="space-around"
 				alignItems="center"

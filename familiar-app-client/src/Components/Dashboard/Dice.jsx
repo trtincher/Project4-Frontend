@@ -19,9 +19,6 @@ const DCard = styled.div`
 	left: 50%;
 	z-index: 10;
 	margin-left: -90px
-
-	
-	
 `;
 
 const Container = styled.div``;

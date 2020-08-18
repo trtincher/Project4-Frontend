@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 const AvatarContainer = styled.div`
-	background: ;
+	background: steelblue;
 	display: flex;
 	justify-content: flex-end;
 	flex-grow: 2;
