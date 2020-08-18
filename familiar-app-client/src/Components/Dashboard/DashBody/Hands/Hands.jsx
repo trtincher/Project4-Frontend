@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import apiURL from '../../../../apiConfig';
 import axios from 'axios';
@@ -24,7 +24,12 @@ const BackButton = styled.button`
 `;
 
 function Hands() {
-	const { activeCharacter, setActiveCharacter, setIsHand, isHand, hand, setHand } = useContext(DataContext);
+	const { activeCharacter, setActiveCharacter, setIsHand, isHand, hand, setHand, prof } = useContext(DataContext);
+	const [ currentProf, setCurrentProf] = useState(0)
+
+	useEffect(()=>{
+		setCurrentProf(prof)
+	}, [prof])
 
 	const HandleBackClick = () => {
 		setIsHand(false);
@@ -35,7 +40,7 @@ function Hands() {
 		<>
 			<ActionHand />
 			<SpellsHand />
-			<SkillsHand />
+			<SkillsHand prof={currentProf}/>
 			<EquipmentHand />
 		</>
 	)

@@ -112,6 +112,7 @@ function DamageCard({ profBonus, mod }) {
 
 		let rollSum = damageRoll.reduce((a, c) => a + c, 0);
 		let damageSum = parseInt(rollSum) + parseInt(profBonus) + parseInt(mod.intelligence);
+
 		const dCard = (
 			<DCard>
 				<h1>Damage</h1>

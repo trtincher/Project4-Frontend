@@ -12,10 +12,7 @@ import Card from '../../../Card/Card';
 
 import SpellList from './SpellCRUD/SpellList';
 
-const Container = styled.div`
-	width: 100%;
-	min-height: 100vh;
-`;
+const Container = styled.div`width: 100%;`;
 
 const Header = styled.div`
 	width: 100%;
@@ -61,7 +58,7 @@ const check = <FontAwesomeIcon icon={faCheckCircle} size="1x" />;
 const times = <FontAwesomeIcon icon={faTimesCircle} size="1x" />;
 const book = <FontAwesomeIcon icon={faBookOpen} size="1x" />;
 
-function ActionHand() {
+function SpellsHand() {
 	const {
 		activeCharacter,
 		setActiveCharacter,
@@ -178,4 +175,4 @@ function ActionHand() {
 	);
 }
 
-export default ActionHand;
+export default SpellsHand;

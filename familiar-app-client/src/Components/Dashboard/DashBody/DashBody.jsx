@@ -66,7 +66,8 @@ function DashBody() {
 					setIsPlayed,
 					activeAction,
 					setActiveAction,
-					isBattle
+					isBattle,
+					prof
 				}}
 			>
 				<Decks />
