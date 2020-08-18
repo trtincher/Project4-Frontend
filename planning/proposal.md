@@ -54,34 +54,40 @@ While other apps aim to achieve similar goals, most are tied to the original cha
 #### MVP
 | Component | Priority | Estimated Time | Actual Time |
 | --- | :---: |  :---: | :---: | 
-Planning|	H|	10|	
-User/Character models|	H|	5|	
-Full CRUD routes for Users|	H|	5|
-RUD for Characters/Spells/Actions|	H|	5|	
-React Architecture Setup|	H|	3|	
-Landing|	H|	2|	
-Sign up|	H|	5|	
-Seed Data with Character Presets|	H|	1|	
-Login|	H|	2|	
-About Page|	L|	1|	
-Choose Character|	H|	3|	
-Character Dashboard|	H|	5|	
-Character Details|	M|	2|	
-Character Leveling|	H|	2|	
-Health|	H|	3|	
-BuffDebuffs|	M|	2|	
-Header|	H|	2|	
-Footer|	H|	2|	
-Deck|	H|	3|	
-Card|	H|	3|	
-Hand|	H|	4|	
+MVP|||||Post MVP|||
+Component|Priority|Estimated Time|Actual Time||Component|Priority|Estimated Time|Actual Time
+Planning|H|10|11||3rd Party verification|H|3|0
+User/Character models|H|5|2||Add Classes|M|3|0
+Full CRUD routes for Users|H|5|2||Character Creation|M|3|0
+RUD for Characters/Spells/Actions|H|5|2||Random monster generator|L|3|0
+React Architecture Setup|H|3|1||Card Theme options|L|3|0
+Landing|H|2|2|||||
+Sign up|H|5|1||Total|15|0|
+Seed Data with Character Presets|H|1|2|||||
+Login|H|2|1|||||
+Choose Character|H|3|1|||||
+EditUser|M|2|2|||||
+EditCharacter|M|2|4|||||
+DeleteUser|M|2|2|||||
+CreateCharacter|M|1|1|||||
+DeleteCharacter|M|1|0.25|||||
+Health|H|3|0.5|||||
+BuffDebuffs|M|2|1|||||
+Header|H|2|5|||||
+Footer|H|2|6|||||
+Deck|H|3|9|||||
+Card|H|3|1|||||
+Hand|H|4|1|||||
+Deployment|H|2|3|||||
+General Styling|M|2|3|||||
+Dashboard Functionality|H|5|10|||||
+||||||||
+Planning||10|11|||||
+Frontend||51|54.75|||||
+Backend||16|8|||||
+Total||77|73.75|||||	
 
-| Totals | Estimated Time | Actual Time |
-| --- | :---: |  :---: |
-Planning|10|	
-Frontend|45|	
-Backend|15|	
-Total|70|	
+
 
 #### PostMVP
 | Component | Priority | Estimated Time | Actual Time |
@@ -113,22 +119,22 @@ You are **responsible** for scheduling time with your squad to seek approval for
 |Day 1 - Tues|Frontend(FE) Deployment|Complete
 |Day 2- Wed|CharacterForm|Incomplete
 |Day 2- Wed|Choose Character|Complete
-|Day 2- Wed|Character Dashboard|In Progress...
+|Day 2- Wed|Character Dashboard|Complete
 |Day 2- Wed|Card|Complete
-|Day 2- Wed|Deck|In Progress...
-|Day 2- Wed|Hand|In Progress...
+|Day 2- Wed|Deck|Complete
+|Day 2- Wed|Hand|Complete
 |Day 3- Thurs|Header|Complete
 |Day 3 - Thurs|Footer|Complete
 |Day 3 - Thurs|SignUp Funct|Complete
-|Day 3 - Thurs|SignUp Style|Incomplete
+|Day 3 - Thurs|SignUp Style|Complete
 |Day 3 - Thurs|Login Funct|Complete
-|Day 3 - Thurs|Login Style|Incomplete
+|Day 3 - Thurs|Login Style|Complete
 |Day 4 - Fri|HealthCalc Style|Complete
-|Day 4 - Fri|HealthCalc Funct|Incomplete
-|Day 4 - Fri|BuffDebuffs|Incomplete
+|Day 4 - Fri|HealthCalc Funct|Complete
+|Day 4 - Fri|BuffDebuffs|Complete
 |Stretch Goal|About Page|Incomplete
 |Day 4 - Fri|Character Leveling|Incomplete
-|Day 5 - Mon|Finish Styling|Incomplete
+|Day 5 - Mon|Finish Styling|...In Progress
 |Day 5 - Mon|3rd Party Password Verfication|Incomplete
 |Day 6 - Tues| Card Theme options| Incomplete
 |Day 7 - Wed|Presentation|Incomplete
@@ -159,6 +165,7 @@ React, React-Router, JS, Style Components, Ruby on Rails, SQL
 - [GitHub Workflow](https://res.cloudinary.com/dugmhtotn/image/upload/v1595609346/GitHub-Workflow_k3x8sn.jpg)
 
 ## Models
+- [Mobile](https://i.imgur.com/ssI46LC.jpg)
 
 ### User
 
