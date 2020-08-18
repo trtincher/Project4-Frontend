@@ -14,10 +14,14 @@ const DCard = styled.div`
 	border-radius: 10px;
 	width: 180px;
 	height: 260px;
-	margin: 15px 30%;
-	padding: 1rem;
-	position: absolute;
-	top: 300px;
+	position: fixed;
+	top: 40%;
+	left: 50%;
+	z-index: 10;
+	margin-left: -90px
+
+	
+	
 `;
 
 const Container = styled.div``;
