@@ -5,9 +5,9 @@ const apiUrls = {
 };
 
 if (window.location.hostname === 'localhost') {
-	apiUrl = apiUrls.development;
+	apiURL = apiUrls.development;
 } else {
-	apiUrl = apiUrls.production;
+	apiURL = apiUrls.production;
 }
 
 export default apiURL;
