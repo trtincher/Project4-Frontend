@@ -29,7 +29,7 @@ function DashBody() {
 	const [ isPlayed, setIsPlayed ] = useState(false);
 	const [ mod, setMod ] = useState({});
 	const [ profBonus, setProfBonus ] = useState({});
-	const [ isDescription, setIsDescription ] = useState({});
+	const [ isDescription, setIsDescription ] = useState(false);
 
 	useEffect(
 		() => {
