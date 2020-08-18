@@ -52,7 +52,7 @@ const Buttons = styled.div`
 `;
 
 const Button = styled.button`
-	background: #9b5de5;
+	background: #dbbbf5;
 	border: 1px solid white;
 	color: white;
 	margin: 5px;
@@ -73,7 +73,8 @@ function SpellList() {
 		hand,
 		setHand,
 		setIsPlayed,
-		setActiveAction
+		setActiveAction,
+		setIsDescription
 	} = useContext(DataContext);
 
 	// console.log('setACtiveCharacter 1', setActiveCharacter);
@@ -161,7 +162,7 @@ function SpellList() {
 			<Card
 				width="100px"
 				height="180px"
-				backgroundColor="#9b5de5"
+				backgroundColor="#dbbbf5"
 				display="flex"
 				justifyContent="space-around"
 				alignItems="center"
@@ -169,12 +170,20 @@ function SpellList() {
 			>
 				<h3>{spell.name}</h3>
 				<Buttons>
-					<DescriptionBtn>{book}</DescriptionBtn>
+					<DescriptionBtn onClick={() => handleDescriptionClick(spell.index)}>{book}</DescriptionBtn>
 					<AddButton onClick={() => addSpell(spell.index)}>{plus}</AddButton>
 				</Buttons>
 			</Card>
 		));
 		setCurrentHand(curHand);
+	};
+
+	const handleDescriptionClick = async (index) => {
+		//get full spell
+		const spell = await axios.get(`https://www.dnd5eapi.co/api/spells/${index}`).catch(console.error);
+		console.log('handleDescriptionClick');
+		setIsDescription(true);
+		setActiveAction(spell);
 	};
 
 	const spellNameFilter = () => {

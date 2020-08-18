@@ -12,6 +12,7 @@ const Container = styled.div`
 	border: 1px solid mintcream;
 	border-radius: 5px 5px 10px 10px;
 	color: mintcream;
+	background: steelblue;
 `;
 
 const SlotContainer = styled.div`display: flex;`;

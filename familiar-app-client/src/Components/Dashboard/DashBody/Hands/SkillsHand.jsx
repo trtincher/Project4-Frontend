@@ -10,12 +10,6 @@ import { DataContext } from '../../../../App';
 import CardContainer from '../../../Card/CardContainer';
 import Card from '../../../Card/Card';
 
-const actionColor = '#FEE440';
-const spellColor = '#9b5de5';
-const equipmentColor = '#00f5d4';
-const skillsColor = '#f15bb5';
-const otherColor = '#00bbf9';
-
 const check = <FontAwesomeIcon icon={faCheckCircle} size="3x" />;
 
 const Container = styled.div`
@@ -40,19 +34,20 @@ const DCard = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-even;
-	background: steelblue;
+	background: #55d6be;
 	border: 2px solid white;
 	border-radius: 10px;
 	width: 180px;
 	height: 260px;
-	margin: 15px 30%;
-	padding: 1rem;
-	position: absolute;
-	top: 300px;
+	position: fixed;
+	top: 40%;
+	left: 50%;
+	z-index: 10;
+	margin-left: -90px;
 `;
 
 const DHeader = styled.h1`
-	font-size: 2rem;
+	font-size: 1.8rem;
 	margin-top: 2rem;
 	margin-bottom: 1rem;
 `;
@@ -60,7 +55,7 @@ const DHeader = styled.h1`
 const Button = styled.button`
 	background: none;
 	border: none;
-	margin-top: 3rem;
+	margin-top: 1rem;
 `;
 
 function SkillsHand() {
@@ -179,7 +174,7 @@ function SkillsHand() {
 			});
 
 			output.push(
-				<Card width="100px" height="180px" backgroundColor="coral" onClick={() => handleCardClick(value)}>
+				<Card width="100px" height="180px" backgroundColor="#f58a07" onClick={() => handleCardClick(value)}>
 					{value.prof ? <Prof>P</Prof> : <Prof />}
 					<Header>{value.name}</Header>
 					<Sub>{value.mod}</Sub>

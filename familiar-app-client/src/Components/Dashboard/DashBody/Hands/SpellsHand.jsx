@@ -69,7 +69,8 @@ function SpellsHand() {
 		setIsPlayed,
 		setActiveAction,
 		spellSlots,
-		setSpellSlots
+		setSpellSlots,
+		setIsDescription
 	} = useContext(DataContext);
 	const [ currentHand, setCurrentHand ] = useState([]);
 
@@ -94,7 +95,7 @@ function SpellsHand() {
 			<Card
 				width="100px"
 				height="180px"
-				backgroundColor="#9b5de5"
+				backgroundColor="#dbbbf5"
 				display="flex"
 				justifyContent="space-around"
 				alignItems="center"
@@ -110,7 +111,7 @@ function SpellsHand() {
 					{spell.components.map((s) => s + ' ')} {spell.ritual ? 'R' : null} {spell.conentration ? 'C' : null}
 				</p>
 				<Buttons>
-					<DescriptionBtn>{book}</DescriptionBtn>
+					<DescriptionBtn onClick={() => handleDescriptionClick(spell)}>{book}</DescriptionBtn>
 					<PlayButton onClick={() => handleSpellsClick(spell)}>{check}</PlayButton>
 				</Buttons>
 
@@ -119,6 +120,12 @@ function SpellsHand() {
 		));
 
 		return curHand;
+	};
+
+	const handleDescriptionClick = (spell) => {
+		console.log('handleDescriptionClick');
+		setIsDescription(true);
+		setActiveAction(spell);
 	};
 
 	// const handlePrepareClick = async (spell) => {

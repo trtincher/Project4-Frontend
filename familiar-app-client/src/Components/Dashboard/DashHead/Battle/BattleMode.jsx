@@ -16,7 +16,7 @@ const Unit = styled.div`
 	background: steelblue;
 	border-radius: 5px;
 	padding: .5rem;
-	margin: 0 .5rem;
+	margin: 0 .3rem;
 	color: mintcream;
 `;
 
