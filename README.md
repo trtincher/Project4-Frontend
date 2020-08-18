@@ -13,4 +13,23 @@ While other apps aim to achieve similar goals, most are tied to the original cha
 
 ### Demo
 
-<img src="https://i.imgur.com/eBnY2jk.png" alt="drawing" width="200"/>
+#### Dashboard Layout:
+Here you have three main sections: the header, the footer, and the body. The header holds all or your main character stats that you will always need to be able to access. The footer holds your general dice roll button, your health display, and your edit health buttons. Finally the body holds your "decks". The decks represent a genre of actions or attributes.
+<img src="https://i.imgur.com/eBnY2jk.png" alt="drawing" width="500"/>
+#### The "hand"
+Clicking on a deck will alow you access to "hand" or collection of cards representing moves or attributes within that decks genre.
+
+Below is the skills hand.
+<img src="https://i.imgur.com/J9cCCG7.png" alt="drawing" width="500"/>
+
+Clicking on a skill wil active the autoroll feature. To use a skill you need to roll a 20 sided die and add your proficency bonus if needed. Just by clicking on the skill card the roll and nessisary additions are all done for you. This way all you have to do is tell the game master the bolded number. No searching for dice or math required?
+<img src="https://i.imgur.com/hiaoS6t.png" alt="drawing" width="500"/>
+
+A big part of D&D is spell managment. Here is show the spells deck. Each spell card shows the spell name (center), the spell level (top right), the components (below spell name), a more details button (bottom left), and a play button (bottum right)
+<img src="https://i.imgur.com/WCqFZu7.png" alt="drawing" width="500"/>
+
+When the play button is selected the damage card appears. This uses the autoroll feature to determine the damage. Here again all nessisary modifiers are auto added based on your characters states.
+<img src="https://i.imgur.com/WtILjbM.png" alt="drawing" width="500"/>
+
+
+
