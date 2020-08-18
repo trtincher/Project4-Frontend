@@ -111,17 +111,20 @@ You are **responsible** for scheduling time with your squad to seek approval for
 |Day 1 - Tues|React Architecture Setup|Complete
 |Day 1 - Tues|Backend(BE) Deployment|Complete
 |Day 1 - Tues|Frontend(FE) Deployment|Complete
-|Day 2- Wed|CharacterForm|In Progress
-|Day 2- Wed|Choose Character|Incomplete
-|Day 2- Wed|Character Dashboard|Incomplete
-|Day 2- Wed|Card|Incomplete
-|Day 2- Wed|Deck|Incomplete
-|Day 2- Wed|Hand|Incomplete
-|Day 3- Thurs|Header|Incomplete
-|Day 3 - Thurs|Footer|Incomplete
-|Day 3 - Thurs|Sign up|Incomplete
-|Day 3 - Thurs|Login|Incomplete
-|Day 4 - Fri|Health|Incomplete
+|Day 2- Wed|CharacterForm|Incomplete
+|Day 2- Wed|Choose Character|Complete
+|Day 2- Wed|Character Dashboard|In Progress...
+|Day 2- Wed|Card|Complete
+|Day 2- Wed|Deck|In Progress...
+|Day 2- Wed|Hand|In Progress...
+|Day 3- Thurs|Header|Complete
+|Day 3 - Thurs|Footer|Complete
+|Day 3 - Thurs|SignUp Funct|Complete
+|Day 3 - Thurs|SignUp Style|Incomplete
+|Day 3 - Thurs|Login Funct|Complete
+|Day 3 - Thurs|Login Style|Incomplete
+|Day 4 - Fri|HealthCalc Style|Complete
+|Day 4 - Fri|HealthCalc Funct|Incomplete
 |Day 4 - Fri|BuffDebuffs|Incomplete
 |Stretch Goal|About Page|Incomplete
 |Day 4 - Fri|Character Leveling|Incomplete
