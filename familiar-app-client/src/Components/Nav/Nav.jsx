@@ -41,11 +41,14 @@ const NavLink = styled(Link)`
   margin-top: ${(props) => props.marginTop || ""};
 `;
 
-const ExitNavButton = styled.div`
-  color: mintcream;
-  border: 1px solid mintcream;
-  border-radius: 10px;
-  width: 40px;
+const ExitNav = styled.div`
+  width: 5vw;
+  height: 100vh;
+  width: 50vw;
+  top: 0;
+  position: fixed;
+  z-index: 10;
+  right: ${(props) => (props.open ? "0" : "-2000px")};
 `;
 
 function Nav() {
@@ -79,10 +82,8 @@ function Nav() {
         <NavLink to="/" onClick={openNav}>
           <h1>Logout</h1>
         </NavLink>
-        <ExitNavButton onClick={openNav}>
-          <h1>X</h1>
-        </ExitNavButton>
       </NavLinkContainer>
+      <ExitNav open={isOpen} onClick={openNav} />
     </Container>
   );
 }
