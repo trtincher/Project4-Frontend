@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
+import { DataContext } from "../../App";
 
 const Container = styled.div``;
 
@@ -53,10 +54,24 @@ const ExitNav = styled.div`
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const {
+    activeUser,
+    setActiveUser,
+    modifiers,
+    setModifiers,
+    isDice,
+    setIsDice,
+    activeCharacter,
+    setActiveCharacter,
+  } = useContext(DataContext);
 
   const openNav = () => {
-    console.log("openNav");
     setIsOpen(!isOpen);
+  };
+
+  const resetState = () => {
+    setActiveUser([]);
+    setActiveCharacter({});
   };
 
   return (
@@ -79,7 +94,7 @@ function Nav() {
         <NavLink to="/editUser" onClick={openNav}>
           <h1>Edit Account</h1>
         </NavLink>
-        <NavLink to="/" onClick={openNav}>
+        <NavLink to="/" onClick={(openNav, resetState)}>
           <h1>Logout</h1>
         </NavLink>
       </NavLinkContainer>

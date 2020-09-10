@@ -13,7 +13,7 @@ const Container = styled.div`
   background: lightsteelblue;
 `;
 
-function Dashboard(props) {
+function Dashboard() {
   const {
     activeUser,
     setActiveUser,
@@ -27,7 +27,6 @@ function Dashboard(props) {
 
   // console.log('ActiveCharacter in Dashboard', activeCharacter);
   // console.log('setActiveCharacter in Dashboard', setActiveCharacter);
-  console.log("props in Dashboard", props);
 
   useEffect(() => {
     // setActiveCharacter({
@@ -385,6 +384,10 @@ function Dashboard(props) {
 
   if (!activeUser[0]) {
     return <Redirect to="/" />;
+  }
+
+  if (!activeCharacter["name"]) {
+    return <Redirect to="/characters" />;
   }
 
   return (
