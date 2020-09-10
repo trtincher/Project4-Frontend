@@ -4,12 +4,7 @@ import apiURL from "../../../apiConfig";
 import axios from "axios";
 import styled, { css } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGavel,
-  faBookmark,
-  faBook,
-  faTools,
-} from "@fortawesome/free-solid-svg-icons";
+import { faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import { DataContext } from "../../../App";
 
 import Decks from "./Decks/Decks";
@@ -21,8 +16,27 @@ const Container = styled.div`
   margin: 0;
 `;
 
+const BackButton = styled.button`
+  right: 0;
+  position: fixed;
+  background: none;
+  border: none;
+  margin: 10px;
+`;
+
+const back = <FontAwesomeIcon icon={faChevronCircleLeft} size="5x" />;
+
 function DashBody() {
-  const { modifiers, prof } = useContext(DataContext);
+  const {
+    activeCharacter,
+    setActiveCharacter,
+    setIsHand,
+    isHand,
+    hand,
+    setHand,
+    prof,
+    modifiers,
+  } = useContext(DataContext);
   const [mod, setMod] = useState({});
   const [profBonus, setProfBonus] = useState({});
 
@@ -35,8 +49,17 @@ function DashBody() {
     }
   }, [modifiers, prof]);
 
+  const HandleBackClick = () => {
+    setIsHand(false);
+    setHand("");
+    window.scrollTo(0, 0);
+  };
+
   return (
     <Container>
+      {isHand && hand ? (
+        <BackButton onClick={HandleBackClick}>{back}</BackButton>
+      ) : null}
       <Decks />
       <Hands />
       <DamageCard profBonus={profBonus} mod={mod} />
