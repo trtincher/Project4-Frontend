@@ -380,6 +380,7 @@ function Dashboard() {
     // 	__v: 0
     // });
     //Re-Route to Select Character
+    window.scrollTo(0, 0);
   }, []);
 
   if (!activeUser[0]) {
